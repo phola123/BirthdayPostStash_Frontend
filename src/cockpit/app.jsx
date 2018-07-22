@@ -1,14 +1,34 @@
-import React from 'react';
-
+import React, {Component} from 'react';
+//css imports
+import '../style.css';
 //Container Imports
-import Home from '../containers/home';
+import Landing from '../containers/landing__page';
+import Navbar from '../components/navbar';
 
-const App = () => {
-    return (
-        <div className="site__wrapper">
-            <Home/>
-        </div>
-    )
+class App extends Component {
+
+
+    navSpacerSetter = () => {
+        let navHeight = document.querySelector('nav').clientHeight;
+        document.querySelector('.navbar__spacer').style.height = navHeight + "px";
+    }
+
+    componentDidMount() {
+        this.navSpacerSetter();
+    }
+
+
+    render() {
+        return (
+            <div className="site__wrapper">
+
+                <Navbar/>
+                <Landing/>
+
+            </div>
+        )
+    }
+
 }
 
 export default App;

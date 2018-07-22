@@ -1,0 +1,43 @@
+nav {
+  position: fixed;
+  width: 100%;
+}
+
+.nav {
+
+  &__container {
+    padding: 10px;
+    margin: 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.41);
+    border-radius: 50px;
+  }
+
+  &__links {
+    display: flex;
+
+    > div {
+      margin: 0 15px;
+    }
+
+    a {
+      color : white;
+      font-size : 1rem;
+      font-weight: 600;
+    }
+
+  }
+
+  &__logo {
+    max-width: 250px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+}
