@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import BaloonScroll from '../assets/images/balloon.png';
+
+configureAnchors({offset:60, scrollDuration: 800, keepLastAnchorHash:false});
 
 //Component Imports
 
@@ -38,31 +40,34 @@ class Landing extends Component {
 
                         </div>
 
-                        <div className="landing__scroll animatedParent">
-                            <img className="animated pulse infinite" src={BaloonScroll} alt="scrollDown"/>
-                        </div>
-
+                        <a href='#section1'>
+                            <div className="landing__scroll animatedParent">
+                                <img className="animated pulse infinite" src={BaloonScroll} alt="scrollDown"/>
+                            </div>
+                        </a>
                     </div>
 
                 </header>
 
-                <section>
+                <ScrollableAnchor id={'section1'}>
+                    <section>
 
-                    <div className="section__wrapper">
+                        <div className="section__wrapper">
 
-                        <div className="application-container">
+                            <div className="application-container">
 
-                            <div className="section__header">
-                                <div className="section__title">
-                                    Our <span>K</span>ey Features
+                                <div className="section__header">
+                                    <div className="section__title">
+                                        Our <span>K</span>ey Features
+                                    </div>
                                 </div>
+
                             </div>
 
                         </div>
 
-                    </div>
-
-                </section>
+                    </section>
+                </ScrollableAnchor>
 
             </div>
 
