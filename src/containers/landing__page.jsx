@@ -56,8 +56,8 @@ class Landing extends Component {
 
                             <div className="application-container">
 
-                                <div className="section__header">
-                                    <div className="section__title">
+                                <div className="section__header animatedParent">
+                                    <div className="section__title animated fadeInUpShort">
                                         Our <span>K</span>ey Features
                                     </div>
                                 </div>
