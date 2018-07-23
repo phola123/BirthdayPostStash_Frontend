@@ -1,15 +1,153 @@
+section {
+  padding: 4rem 0;
+}
+
 .landing {
 
   &__container {
 
     header {
       min-height: 100vh;
-      width:100%;
-      background-image: url("assets/images/header__bg.jpg");
+      width: 100%;
+      background: linear-gradient(rgba(20, 20, 20, .2), rgba(20, 20, 20, .2)), url("assets/images/header__bg.jpg") no-repeat;
+      background-size: cover;
+      background-position: center;
     }
+  }
+  &__headerWrapper {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    position: relative;
+  }
+
+  &__scroll {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: 0 auto;
+    max-width: 50px;
+
+
+    animation-name: balloon;
+    animation-delay: 1s;
+    animation-duration: 10s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+    img {
+      width: 100%;
+    }
 
   }
 
+  &__headInfo {
+    text-align: center;
+    padding: 2rem;
+    color: #fff;
+  }
+
+
+  &__heading {
+
+      font-size: 4rem;
+      font-weight: 700;
+      position: relative;
+      max-width: fit-content;
+      margin: 0 auto;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 50px;
+      top: -50px;
+      background-size: contain;
+      background-image: url("assets/images/popper.png");
+    }
+
+  }
+
+  &__desc {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+}
+
+//Section
+
+.section {
+
+ &__header {
+   text-align: center;
+   color:$black;
+ }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 600;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+
+    span {
+      color: $primary-color;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      left: 50px;
+      top: -30px;
+      background-size: contain;
+      background-image: url("assets/images/popper.png");
+    }
+
+  }
+
+
+
+}
+
+
+@keyframes balloon  {
+
+  0% {
+    transform: scale(1) translateY(0) translateX(0) rotate(0);
+  }
+
+  17% {
+    transform: scale(1.2) translateY(-30px) translateX(10px) rotate(-10deg);
+  }
+
+  34% {
+    transform: scale(1) translateY(0) translateX(0) rotate(0);
+  }
+
+  51% {
+    transform: scale(1.2) translateY(-30px) translateX(10px) rotate(10deg);
+  }
+
+  68% {
+    transform: scale(1) translateY(0) translateX(0) rotate(0);
+  }
+
+  85% {
+    transform: scale(1.2) translateY(-30px) translateX(10px) rotate(-10deg);
+  }
+
+  100% {
+    transform: scale(1) translateY(0) translateX(0) rotate(0);
+  }
 
 }

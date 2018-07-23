@@ -10,11 +10,13 @@ class App extends Component {
 
     navSpacerSetter = () => {
         let navHeight = document.querySelector('nav').clientHeight;
-        document.querySelector('.navbar__spacer').style.height = navHeight + "px";
+        document.querySelector('.nav__spacer').style.height = navHeight + "px";
     }
 
     componentDidMount() {
-        this.navSpacerSetter();
+        setTimeout(() => {
+            this.navSpacerSetter();
+        }, 200);
     }
 
 
