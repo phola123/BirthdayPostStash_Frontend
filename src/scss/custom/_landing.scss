@@ -1,5 +1,6 @@
 section {
-  padding: 4rem 0;
+  padding-bottom:4rem ;
+  min-height: 100vh;
 }
 
 .landing {
@@ -12,6 +13,7 @@ section {
       background: linear-gradient(rgba(20, 20, 20, .2), rgba(20, 20, 20, .2)), url("assets/images/header__bg.jpg") no-repeat;
       background-size: cover;
       background-position: center;
+      background-attachment: fixed;
     }
   }
   &__headerWrapper {

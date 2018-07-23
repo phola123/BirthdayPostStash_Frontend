@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
 import BaloonScroll from '../assets/images/balloon.png';
 
-configureAnchors({offset:60, scrollDuration: 800, keepLastAnchorHash:false});
+configureAnchors({offset: 60, scrollDuration: 800, keepLastAnchorHash: false});
 
 //Component Imports
 
@@ -51,7 +51,7 @@ class Landing extends Component {
 
                 <ScrollableAnchor id={'section1'}>
                     <section>
-
+                        <div className="nav__spacer"></div>
                         <div className="section__wrapper">
 
                             <div className="application-container">
