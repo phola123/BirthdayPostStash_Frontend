@@ -2365,7 +2365,8 @@ body {
 
 nav {
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 50; }
 
 .nav__container {
   padding: 10px;
@@ -2373,8 +2374,10 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.41);
-  border-radius: 50px; }
+  transition: 0.3s ease; }
+  .nav__container.active {
+    background: #a6cb47;
+    border-radius: 50px; }
 
 .nav__spacer {
   min-height: 100px; }

@@ -5,6 +5,21 @@ import Logo from '../assets/images/logo.png';
 
 class Navbar extends Component {
 
+    activeNav = () => {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            document.querySelector(".nav__container").classList.add("active");
+        } else
+        if (document.body.scrollTop < 150 || document.documentElement.scrollTop > 150) {
+            document.querySelector(".nav__container").classList.remove("active");
+        }
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.activeNav);
+    }
+
+
+
     render() {
 
         return (

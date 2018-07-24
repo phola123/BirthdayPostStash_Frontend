@@ -1,6 +1,7 @@
 nav {
   position: fixed;
   width: 100%;
+  z-index: $z-sticky-header;
 }
 
 .nav {
@@ -12,9 +13,13 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.3s ease;
 
-    background: rgba(0, 0, 0, 0.41);
-    border-radius: 50px;
+    &.active {
+      background: rgb(166, 203, 71);
+      border-radius: 50px;
+    }
+
   }
 
   &__spacer {
