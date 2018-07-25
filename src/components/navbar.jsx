@@ -7,10 +7,10 @@ class Navbar extends Component {
 
     activeNav = () => {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            document.querySelector(".nav__container").classList.add("active");
+            document.querySelector("nav").classList.add("active");
         } else
         if (document.body.scrollTop < 150 || document.documentElement.scrollTop > 150) {
-            document.querySelector(".nav__container").classList.remove("active");
+            document.querySelector("nav").classList.remove("active");
         }
     }
 

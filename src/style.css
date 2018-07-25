@@ -2366,18 +2366,18 @@ body {
 nav {
   position: fixed;
   width: 100%;
-  z-index: 50; }
-
-.nav__container {
+  z-index: 50;
   padding: 10px;
-  margin: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin: 5px 0;
   transition: 0.3s ease; }
-  .nav__container.active {
+  nav.active {
     background: #a6cb47;
     border-radius: 50px; }
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
 
 .nav__spacer {
   min-height: 100px; }

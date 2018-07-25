@@ -2,23 +2,24 @@ nav {
   position: fixed;
   width: 100%;
   z-index: $z-sticky-header;
+  padding: 10px;
+  margin: 5px 0;
+
+  transition: 0.3s ease;
+
+  &.active {
+    background: rgb(166, 203, 71);
+    border-radius: 50px;
+  }
 }
 
 .nav {
 
   &__container {
-    padding: 10px;
-    margin: 5px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 0.3s ease;
-
-    &.active {
-      background: rgb(166, 203, 71);
-      border-radius: 50px;
-    }
 
   }
 
