@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
 import BaloonScroll from '../assets/images/balloon.png';
+//popup Imports
+import SignInPopUp from "../components/signIn";
 
 configureAnchors({offset: 60, scrollDuration: 800, keepLastAnchorHash: false});
 
@@ -69,6 +71,18 @@ class Landing extends Component {
                     </section>
                 </ScrollableAnchor>
 
+
+
+
+
+
+
+
+
+
+
+                {/*all popup Imports*/}
+            <SignInPopUp />
             </div>
 
 

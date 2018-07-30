@@ -11,7 +11,7 @@
 /*Fonts Import*/
 @import "mixins/_fonts-include.scss";
 /*  Import bootstrap core library */
-@import "vendor/bootstrap-imports";
+@import "vendor/argon";
 /*Normalize Import*/
 // @import "partials/_normalize.scss";
 
@@ -50,9 +50,8 @@ body {
   max-width: $site-container-max-width;
 }
 
-
-
 /* Custom imports */
 @import "global/helper-classes";
 @import "custom/navbar";
 @import "custom/landing";
+

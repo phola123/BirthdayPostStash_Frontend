@@ -36,8 +36,8 @@ class Navbar extends Component {
                                 <a href="#">Home</a>
                             </div>
                             {/*Link*/}
-                            <div className="nav__link">
-                                <a href="#">Login</a>
+                            <div className="nav__link" data-toggle="modal" data-target="#SignInModal">
+                                <a href="javascript:void(0)">Login</a>
                             </div>
                             {/*Link*/}
                             <div className="nav__link">
