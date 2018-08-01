@@ -2,14 +2,34 @@ import React, {Component} from 'react';
 
 //assets imports
 import Logo from '../assets/images/logo.png';
+//popup Imports
+import SignInPopUp from "../components/signIn";
 
 class Navbar extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            open: false,
+        };
+
+    }
+
+
+    handleClickOpen = () => {
+        this.setState({open: true});
+    };
+
+    handleClose = () => {
+        this.setState({open: false});
+    };
+
 
     activeNav = () => {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
             document.querySelector("nav").classList.add("active");
-        } else
-        if (document.body.scrollTop < 150 || document.documentElement.scrollTop > 150) {
+        } else if (document.body.scrollTop < 150 || document.documentElement.scrollTop > 150) {
             document.querySelector("nav").classList.remove("active");
         }
     }
@@ -17,8 +37,6 @@ class Navbar extends Component {
     componentDidMount() {
         window.addEventListener('scroll', this.activeNav);
     }
-
-
 
     render() {
 
@@ -36,7 +54,7 @@ class Navbar extends Component {
                                 <a href="#">Home</a>
                             </div>
                             {/*Link*/}
-                            <div className="nav__link" data-toggle="modal" data-target="#SignInModal">
+                            <div onClick={this.handleClickOpen} className="nav__link">
                                 <a href="javascript:void(0)">Login</a>
                             </div>
                             {/*Link*/}
@@ -50,6 +68,12 @@ class Navbar extends Component {
                         </div>
                     </div>
                 </div>
+
+                <SignInPopUp
+                    open={this.state.open}
+                    closeHandler={this.handleClose}
+                ></SignInPopUp>
+
 
             </nav>
         )

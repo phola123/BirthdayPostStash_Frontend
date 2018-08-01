@@ -1,0 +1,19 @@
+
+.access {
+
+  &__wrapper {
+    background: $white;
+    display: flex;
+  }
+
+
+  &__lhs {
+    background: $primary-color;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+
+
+
+}

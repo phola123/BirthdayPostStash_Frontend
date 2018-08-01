@@ -1,40 +1,42 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-//images import
+// material ui
+
+import Dialog from '@material-ui/core/Dialog';
+
+// images import
 
 import signInImage from '../assets/images/sign-in-1.png';
 
-const SignInPopUp = () => {
+class SignInPopUp extends Component {
+
+    render() {
+
+        return (
+
+            // common wrapper for sign in and register
+            <Dialog
+                open={this.props.open}
+                onClose={this.props.closeHandler}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                    <div className="access__wrapper">
+
+                        <div className="access__lhs">
+                            <img src={signInImage} alt="signInImage"/>
+                        </div>
+
+                        <div className="access__rhs">
 
 
-    return(
+                        </div>
+                    </div>
+            </Dialog>
 
-        <div className="modal fade" id="SignInModal" tabIndex="-1" role="dialog" aria-labelledby="SignInModal" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered" role="document">
+        )
 
-                {/*commom wrapper for sign in and register*/}
-               <div className="access__wrapper">
-
-                   <div className="access__lhs">
-                       <img src={signInImage} alt="signInImage" />
-                   </div>
-
-                   <div className="access__rhs">
-
-
-
-                   </div>
-
-               </div>
-
-            </div>
-        </div>
-
-
-    )
-
-
-
+    }
 };
 
 export default SignInPopUp;

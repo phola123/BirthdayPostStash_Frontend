@@ -11015,7 +11015,6 @@ nav {
   transition: 0.3s ease; }
   nav.active {
     background: #a6cb47;
-    border-radius: 50px;
     margin: 0px; }
 
 .nav__container {
@@ -11139,3 +11138,13 @@ section {
     transform: scale(1.2) translateY(-30px) translateX(10px) rotate(-10deg); }
   100% {
     transform: scale(1) translateY(0) translateX(0) rotate(0); } }
+
+.access__wrapper {
+  background: #ffffff;
+  display: flex; }
+
+.access__lhs {
+  background: #a6cb47;
+  display: flex;
+  align-items: center;
+  padding: 1rem; }
