@@ -1,42 +1,34 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-// material ui
-
-import Dialog from '@material-ui/core/Dialog';
+//Component Imports
+import Popup from '../containers/popup';
 
 // images import
 
 import signInImage from '../assets/images/sign-in-1.png';
 
-class SignInPopUp extends Component {
+const SignInPopUp = (props) => {
 
-    render() {
+    return (
+        <Popup open={props.open}
+               closeHandler={props.closeHandler}>
+            <div className="access__wrapper">
 
-        return (
+                <div className="access__lhs">
+                    <img src={signInImage} alt="signInImage"/>
+                </div>
 
-            // common wrapper for sign in and register
-            <Dialog
-                open={this.props.open}
-                onClose={this.props.closeHandler}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                    <div className="access__wrapper">
-
-                        <div className="access__lhs">
-                            <img src={signInImage} alt="signInImage"/>
-                        </div>
-
-                        <div className="access__rhs">
+                <div className="access__rhs">
 
 
-                        </div>
-                    </div>
-            </Dialog>
+                </div>
+            </div>
+        </Popup>
 
-        )
+    )
 
-    }
-};
+
+}
+
 
 export default SignInPopUp;

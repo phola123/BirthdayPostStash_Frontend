@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 //assets imports
 import Logo from '../assets/images/logo.png';
 //popup Imports
-import SignInPopUp from "../components/signIn";
+import SignInPopUp from "./signIn";
 
 class Navbar extends Component {
 
@@ -16,16 +16,17 @@ class Navbar extends Component {
 
     }
 
-
+    //popup Open handler
     handleClickOpen = () => {
         this.setState({open: true});
     };
 
+    //popup Close
     handleClose = () => {
         this.setState({open: false});
     };
 
-
+    //active class nav handler
     activeNav = () => {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
             document.querySelector("nav").classList.add("active");
@@ -34,6 +35,7 @@ class Navbar extends Component {
         }
     }
 
+    //component did mount
     componentDidMount() {
         window.addEventListener('scroll', this.activeNav);
     }
@@ -72,7 +74,7 @@ class Navbar extends Component {
                 <SignInPopUp
                     open={this.state.open}
                     closeHandler={this.handleClose}
-                ></SignInPopUp>
+                />
 
 
             </nav>
