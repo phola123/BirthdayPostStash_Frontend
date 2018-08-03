@@ -68,18 +68,28 @@ class SignInPopUp extends Component {
 
     passwordValidator = value => {
 
-        if (value.length > 0) {
+        if (value.length >= 8) {
             this.setState({isPassValidated: true});
             this.passValid = null;
         }
         else {
+
             this.setState({isPassValidated: false});
-            this.passValid = 'Please Enter Password';
+
+            if (value.length > 0 && value.length < 8) {
+
+                this.passValid = 'Please enter more than 8 character';
+            }
+            else {
+
+                this.passValid = 'Please Enter Password';
+            }
         }
 
     }
 
     submitForm = () => {
+
         if (this.state.isEmailValidated && this.state.isPassValidated) {
             alert("submitted");
         }
