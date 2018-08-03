@@ -1,19 +1,86 @@
 
+
 .access {
 
   &__wrapper {
     background: $white;
     display: flex;
+    flex-direction: column;
   }
-
 
   &__lhs {
     background: $primary-color;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 1rem;
   }
 
+  &__rhs {
+    position: relative;
 
+    padding: 30px;
+  }
+
+  &__header {
+    text-align: left;
+    border-bottom: 3px solid $primary-color;
+    font-size: 18px;
+    font-weight: 700;
+    max-width: 60px;
+    padding-bottom: 5px;
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      left:25px;
+      top: -25px;
+      background-size: contain;
+      background-image: url("assets/images/popper.png");
+    }
+  }
+
+
+  &__form {
+    margin: 30px 0;
+  }
+
+  > div {
+    margin-bottom: 16px;
+  }
+
+  &__input {
+
+    margin: 0 0 15px !important;
+    display: flex !important;
+
+    label {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: $font-primary;
+      letter-spacing: 0.5px;
+    }
+
+    input {
+      padding: 10px 0px;
+      font-family: $font-primary;
+      color:#000;
+      font-weight: 500;
+    }
+
+  }
+  
+  &__cta {
+
+    span {
+      color: #fff;
+    }
+
+  }
 
 }

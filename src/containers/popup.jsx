@@ -22,6 +22,7 @@ class Popup extends Component {
                 onClose={this.props.closeHandler}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
+                className="popup__class"
             >
                 <Zoom in={this.props.open}>
                     <Paper elevation={4}>
