@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import Popup from '../containers/popup';
 
 //material Ui
-import {withStyles, MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -12,6 +12,9 @@ import Button from '@material-ui/core/Button';
 
 import signInImage from '../assets/images/sign-in-1.png';
 
+//axios import
+
+import axios from 'axios';
 
 const theme = createMuiTheme({
     palette: {
@@ -35,6 +38,11 @@ class SignInPopUp extends Component {
 
         };
 
+        this.formData = {
+            email: '',
+            password: ''
+        }
+
         this.emailValid = null;
         this.passValid = null;
 
@@ -44,7 +52,7 @@ class SignInPopUp extends Component {
     emailValidator = value => {
         console.log(value);
 
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+        if (/^(?:[A-Z\d][A-Z\d_-]{5,10}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})$/i.test(value)) {
             this.setState({isEmailValidated: true});
             this.emailValid = null;
         }
@@ -81,7 +89,6 @@ class SignInPopUp extends Component {
                 this.passValid = 'Please enter more than 8 character';
             }
             else {
-
                 this.passValid = 'Please Enter Password';
             }
         }
@@ -89,9 +96,31 @@ class SignInPopUp extends Component {
     }
 
     submitForm = () => {
-
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        this.emailValidator(this.formData.email);
+        this.passwordValidator(this.formData.password);
+        console.log(token);
         if (this.state.isEmailValidated && this.state.isPassValidated) {
-            alert("submitted");
+
+            axios({
+                method: 'post',
+                mode: 'CORS',
+                headers: {
+                    'Access-Control-Allow-Origin' : '*' ,
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Access-Control-Allow-Credentials': '*'
+                },
+                url: 'https://demo-bpstash.herokuapp.com/users/login/',
+                data: {
+                    password: this.formData.password,
+                    username: this.formData.email
+                }
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
+
         }
     }
 
@@ -118,6 +147,7 @@ class SignInPopUp extends Component {
                             <MuiThemeProvider theme={theme}>
                                 <TextField
                                     onBlur={(e) => this.emailValidator(e.target.value)}
+                                    onChange={e => this.formData.email = e.target.value}
                                     id="email-input"
                                     label="Email"
                                     type="email"
@@ -133,6 +163,7 @@ class SignInPopUp extends Component {
                                 <TextField
                                     id="password-input"
                                     onBlur={(e) => this.passwordValidator(e.target.value)}
+                                    onChange={e => this.formData.password = e.target.value}
                                     label="Password"
                                     type="password"
                                     fullWidth
