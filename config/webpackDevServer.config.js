@@ -92,4 +92,5 @@ module.exports = function(proxy, allowedHost) {
       app.use(noopServiceWorkerMiddleware());
     },
   };
+
 };

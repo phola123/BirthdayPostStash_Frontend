@@ -62,7 +62,7 @@ class SignInPopUp extends Component {
             this.setState({isEmailValidated: false});
 
             if (value.length === 0) {
-                this.emailValid = 'Please Enter Email';
+                this.emailValid = 'Please Enter Valid Shit Here';
             }
 
             else {
@@ -76,7 +76,7 @@ class SignInPopUp extends Component {
 
     passwordValidator = value => {
 
-        if (value.length >= 8) {
+        if (value.length >= 6) {
             this.setState({isPassValidated: true});
             this.passValid = null;
         }
@@ -84,9 +84,9 @@ class SignInPopUp extends Component {
 
             this.setState({isPassValidated: false});
 
-            if (value.length > 0 && value.length < 8) {
+            if (value.length > 0 && value.length < 6) {
 
-                this.passValid = 'Please enter more than 8 character';
+                this.passValid = 'Please enter more than 6 character';
             }
             else {
                 this.passValid = 'Please Enter Password';
@@ -96,20 +96,12 @@ class SignInPopUp extends Component {
     }
 
     submitForm = () => {
-        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         this.emailValidator(this.formData.email);
         this.passwordValidator(this.formData.password);
-        console.log(token);
         if (this.state.isEmailValidated && this.state.isPassValidated) {
 
             axios({
                 method: 'post',
-                mode: 'CORS',
-                headers: {
-                    'Access-Control-Allow-Origin' : '*' ,
-                    'Access-Control-Allow-Headers': 'Content-Type',
-                    'Access-Control-Allow-Credentials': '*'
-                },
                 url: 'https://demo-bpstash.herokuapp.com/users/login/',
                 data: {
                     password: this.formData.password,
@@ -144,34 +136,39 @@ class SignInPopUp extends Component {
                         <div className="access__form">
 
                             {/*Email*/}
-                            <MuiThemeProvider theme={theme}>
-                                <TextField
-                                    onBlur={(e) => this.emailValidator(e.target.value)}
-                                    onChange={e => this.formData.email = e.target.value}
-                                    id="email-input"
-                                    label="Email"
-                                    type="email"
-                                    fullWidth
-                                    className="access__input"
-                                />
-                                <div className="has-error">{this.emailValid}</div>
+                            <div className="access__textFields">
+                                <MuiThemeProvider theme={theme}>
+                                    <TextField
+                                        onBlur={(e) => this.emailValidator(e.target.value)}
+                                        onChange={e => this.formData.email = e.target.value}
+                                        id="email-input"
+                                        label="Email Or Username"
+                                        type="email"
+                                        fullWidth
+                                        className="access__input"
+                                    />
+                                    {/*validations*/}
+                                    <div className="has-error">{this.emailValid}</div>
 
-                            </MuiThemeProvider>
+                                </MuiThemeProvider>
+                            </div>
 
+                            {/*Password*/}
+                            <div className="access__textFields">
+                                <MuiThemeProvider theme={theme}>
+                                    <TextField
+                                        id="password-input"
+                                        onBlur={(e) => this.passwordValidator(e.target.value)}
+                                        onChange={e => this.formData.password = e.target.value}
+                                        label="Password"
+                                        type="password"
+                                        fullWidth
+                                        className="access__input"
+                                    />
+                                    <div className="has-error">{this.passValid}</div>
 
-                            <MuiThemeProvider theme={theme}>
-                                <TextField
-                                    id="password-input"
-                                    onBlur={(e) => this.passwordValidator(e.target.value)}
-                                    onChange={e => this.formData.password = e.target.value}
-                                    label="Password"
-                                    type="password"
-                                    fullWidth
-                                    className="access__input"
-                                />
-                                <div className="has-error">{this.passValid}</div>
-
-                            </MuiThemeProvider>
+                                </MuiThemeProvider>
+                            </div>
 
                         </div>
                         <MuiThemeProvider theme={theme}>

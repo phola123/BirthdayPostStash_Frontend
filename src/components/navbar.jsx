@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import Logo from '../assets/images/logo.png';
 //popup Imports
 import SignInPopUp from "./signIn";
+import RegisterPopup from './register'
 
 class Navbar extends Component {
 
@@ -11,19 +12,30 @@ class Navbar extends Component {
         super(props);
 
         this.state = {
-            open: false,
+            signOpen: false,
+            registerOpen : false
         };
 
     }
 
-    //popup Open handler
-    handleClickOpen = () => {
-        this.setState({open: true});
+    //popup signInOpen handler
+    handleClickSignOpen = () => {
+        this.setState({signOpen: true});
     };
 
-    //popup Close
-    handleClose = () => {
-        this.setState({open: false});
+    //popup registerOpen handler
+    handleClickRegisterOpen = () => {
+        this.setState({registerOpen: true});
+    };
+
+    //signInpopup Close
+    handleSignClose = () => {
+        this.setState({signOpen: false});
+    };
+
+    //Registerpopup Close
+    handleRegisterClose = () => {
+        this.setState({registerOpen: false});
     };
 
     //active class nav handler
@@ -56,12 +68,12 @@ class Navbar extends Component {
                                 <a href="#">Home</a>
                             </div>
                             {/*Link*/}
-                            <div onClick={this.handleClickOpen} className="nav__link">
+                            <div onClick={this.handleClickSignOpen} className="nav__link">
                                 <a href="javascript:void(0)">Login</a>
                             </div>
                             {/*Link*/}
-                            <div className="nav__link">
-                                <a href="#">Register</a>
+                            <div onClick={this.handleClickRegisterOpen}  className="nav__link">
+                                <a href="javascript:void(0)">Register</a>
                             </div>
                             {/*Link*/}
                             <div className="nav__link">
@@ -72,8 +84,13 @@ class Navbar extends Component {
                 </div>
 
                 <SignInPopUp
-                    open={this.state.open}
-                    closeHandler={this.handleClose}
+                    open={this.state.signOpen}
+                    closeHandler={this.handleSignClose}
+                />
+
+                <RegisterPopup
+                    open={this.state.registerOpen}
+                    closeHandler={this.handleRegisterClose}
                 />
 
 

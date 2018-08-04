@@ -8622,18 +8622,19 @@ section {
 
 .access__wrapper {
   background: #ffffff;
-  display: flex;
-  flex-direction: column; }
+  display: flex; }
 
 .access__lhs {
   background: #a6cb47;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem; }
+  padding: 1rem;
+  flex: 1 1 20%; }
 
 .access__rhs {
   position: relative;
+  flex: 1 1 80%;
   padding: 30px; }
 
 .access__header {
@@ -8641,7 +8642,7 @@ section {
   border-bottom: 3px solid #a6cb47;
   font-size: 18px;
   font-weight: 700;
-  max-width: 60px;
+  max-width: fit-content;
   padding-bottom: 5px;
   position: relative; }
   .access__header:before {
@@ -8661,8 +8662,11 @@ section {
 .access > div {
   margin-bottom: 16px; }
 
+.access__textFields {
+  margin-bottom: 15px; }
+
 .access__input {
-  margin: 0 0 15px !important;
+  margin: 0 0 5px !important;
   display: flex !important; }
   .access__input label {
     font-size: 14px;
