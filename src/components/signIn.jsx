@@ -52,7 +52,8 @@ class SignInPopUp extends Component {
     emailValidator = value => {
         console.log(value);
 
-        if (/^(?:[A-Z\d][A-Z\d_-]{5,10}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})$/i.test(value)) {
+        // if (/^(?:[A-Z\d][A-Z\d_-]{5,10}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})$/i.test(value)) {
+        if(value) {
             this.setState({isEmailValidated: true});
             this.emailValid = null;
         }
@@ -111,6 +112,9 @@ class SignInPopUp extends Component {
                 console.log(response);
             }).catch(function (error) {
                 console.log(error);
+                //close popup
+                let el = document.querySelector('.popup__class > div:first-of-type');
+                el.click();
             });
 
         }

@@ -36,6 +36,7 @@ class RegisterPopup extends Component {
             isFirstValidated: false,
             isUserValidated: false,
             isRepearValidated: false,
+            errorData: null
 
         };
 
@@ -58,6 +59,7 @@ class RegisterPopup extends Component {
     //email Validator
     emailValidator = value => {
         console.log(value);
+        this.state.errorData && this.setState({errorData: null});
 
         if (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value)) {
             this.setState({isEmailValidated: true});
@@ -83,7 +85,7 @@ class RegisterPopup extends Component {
 
     //password validator
     passwordValidator = value => {
-
+        this.state.errorData && this.setState({errorData: null});
         if (value.length >= 6) {
 
             this.setState({isPassValidated: true});
@@ -122,7 +124,7 @@ class RegisterPopup extends Component {
     //usertName validator
 
     userNameValidator = value => {
-
+        this.state.errorData && this.setState({errorData: null});
         if (value.length !== 0) {
             this.setState({isUserValidated: true});
             this.userValid = null;
@@ -156,7 +158,7 @@ class RegisterPopup extends Component {
         this.firstNameValidator(this.formData.first_name);
         this.userNameValidator(this.formData.username);
 
-        if (this.state.isEmailValidated && this.state.isPassValidated && this.state.isFirstValidated && this.state.isUserValidated ) {
+        if (this.state.isEmailValidated && this.state.isPassValidated && this.state.isFirstValidated && this.state.isUserValidated) {
 
             axios({
                 method: 'post',
@@ -168,11 +170,11 @@ class RegisterPopup extends Component {
                     password: this.formData.password,
                     email: this.formData.email
                 }
-            }).then(function (response) {
+            }).then(response => {
+
                 console.log(response);
-            }).catch(function (error) {
-                console.log(error);
-            });
+            })
+                .catch(error => this.setState({errorData: error.response.data}))
 
         }
     }
@@ -209,7 +211,9 @@ class RegisterPopup extends Component {
                                         fullWidth
                                         className="access__input"
                                     />
-                                    <div className="has-error">{this.userValid}</div>
+                                    <div className="has-error">
+                                        {!this.state.errorData ? this.userValid : (!this.state.errorData.username ? null : this.state.errorData.username[0])}
+                                    </div>
 
                                 </MuiThemeProvider>
                             </div>
@@ -226,8 +230,9 @@ class RegisterPopup extends Component {
                                         fullWidth
                                         className="access__input"
                                     />
-                                    <div className="has-error">{this.emailValid}</div>
-
+                                    <div className="has-error">
+                                        {(!this.state.errorData) ? this.emailValid : (!this.state.errorData.email ? null : this.state.errorData.email[0])}
+                                    </div>
                                 </MuiThemeProvider>
                             </div>
 
@@ -276,7 +281,10 @@ class RegisterPopup extends Component {
                                         fullWidth
                                         className="access__input"
                                     />
-                                    <div className="has-error">{this.passValid}</div>
+                                    <div className="has-error">{
+                                        !this.state.errorData ? this.passValid : (!this.state.errorData.password ? null : this.state.errorData.password[0])
+                                    }
+                                    </div>
 
                                 </MuiThemeProvider>
                             </div>
