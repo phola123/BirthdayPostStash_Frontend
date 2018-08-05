@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import Popup from '../containers/popup';
 
 //material Ui
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 

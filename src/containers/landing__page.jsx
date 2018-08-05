@@ -62,6 +62,14 @@ class Landing extends Component {
                                     </div>
                                 </div>
 
+                                {/*key Fatures Cards ui*/}
+                                <div className="keyFeature__wrapper">
+
+                                    {/*feature*/}
+                                    <div className="keyFeature__card"></div>
+
+                                </div>
+
                             </div>
 
                         </div>
@@ -82,3 +90,11 @@ class Landing extends Component {
 
 
 export default Landing;
+
+
+/*
+
+1. Keep all the funny pictures of your friends in a stash. And tag your friends in them.
+2. Get a reminder on a special event and access all the photos you stored of that friend without any hassle of scrolling through all.
+
+*/
