@@ -173,10 +173,25 @@ class RegisterPopup extends Component {
             }).then(response => {
 
                 console.log(response);
+                this.setState({isSubmitted: true})
+                this.closePopUp();
             })
-                .catch(error => this.setState({errorData: error.response.data}))
+                .catch(error => {
+                    this.setState({
+                        errorData: error.response.data,
+                        isSubmitted: false
+                    })
+                })
+
 
         }
+    }
+
+    // close popup
+    closePopUp = () => {
+
+        let el = document.querySelector('.popup__class > div:first-of-type');
+        el.click();
     }
 
     render() {

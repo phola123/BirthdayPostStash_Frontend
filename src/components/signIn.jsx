@@ -108,16 +108,27 @@ class SignInPopUp extends Component {
                     password: this.formData.password,
                     username: this.formData.email
                 }
-            }).then(function (response) {
+            }).then(response => {
+
                 console.log(response);
-            }).catch(function (error) {
+                this.setState({isSubmitted: true})
+                this.closePopUp() ;
+            }).catch( error => {
                 console.log(error);
-                //close popup
-                let el = document.querySelector('.popup__class > div:first-of-type');
-                el.click();
+                this.setState({
+                    isSubmitted: false
+                });
             });
 
         }
+
+    }
+
+    // close popup
+    closePopUp = () => {
+
+        let el = document.querySelector('.popup__class > div:first-of-type');
+        el.click();
     }
 
     render() {
