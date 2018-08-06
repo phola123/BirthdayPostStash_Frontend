@@ -2,14 +2,15 @@ nav {
   position: fixed;
   width: 100%;
   z-index: $z-sticky-header;
-  padding: 10px;
+  padding: 10px 10px 30px;
   margin: 5px 0;
 
-  transition: 0.3s ease;
+  transition: 0.3s ease all;
 
   &.active {
     background: rgb(166, 203, 71);
-    margin: 0px;
+    padding: 10px;
+    margin: 0;
   }
 }
 
