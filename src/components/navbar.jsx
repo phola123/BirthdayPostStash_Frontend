@@ -13,7 +13,7 @@ class Navbar extends Component {
 
         this.state = {
             signOpen: false,
-            registerOpen : false
+            registerOpen: false
         };
 
     }
@@ -72,7 +72,7 @@ class Navbar extends Component {
                                 <a href="javascript:void(0)">Login</a>
                             </div>
                             {/*Link*/}
-                            <div onClick={this.handleClickRegisterOpen}  className="nav__link">
+                            <div onClick={this.handleClickRegisterOpen} className="nav__link">
                                 <a href="javascript:void(0)">Register</a>
                             </div>
                             {/*Link*/}
@@ -83,15 +83,21 @@ class Navbar extends Component {
                     </div>
                 </div>
 
-                <SignInPopUp
-                    open={this.state.signOpen}
-                    closeHandler={this.handleSignClose}
-                />
 
-                <RegisterPopup
-                    open={this.state.registerOpen}
-                    closeHandler={this.handleRegisterClose}
-                />
+                {/*signIn popup*/}
+                {
+                    this.state.signOpen ? <SignInPopUp
+                        open={this.state.signOpen}
+                        closeHandler={this.handleSignClose}
+                    /> : null
+                }
+                {/*registeration Popup*/}
+                {
+                    this.state.registerOpen ? <RegisterPopup
+                        open={this.state.registerOpen}
+                        closeHandler={this.handleRegisterClose}
+                    /> : null
+                }
 
 
             </nav>

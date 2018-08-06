@@ -34,7 +34,8 @@ class SignInPopUp extends Component {
 
             isSubmitted: false,
             isEmailValidated: false,
-            isPassValidated: false
+            isPassValidated: false,
+            errorData: null
 
         };
 
@@ -48,7 +49,7 @@ class SignInPopUp extends Component {
 
     }
 
-
+    //email validator
     emailValidator = value => {
         console.log(value);
 
@@ -63,11 +64,7 @@ class SignInPopUp extends Component {
             this.setState({isEmailValidated: false});
 
             if (value.length === 0) {
-                this.emailValid = 'Please Enter Valid Shit Here';
-            }
-
-            else {
-                this.emailValid = 'Incorrect Email';
+                this.emailValid = 'Please enter your username.';
             }
 
         }
@@ -75,6 +72,7 @@ class SignInPopUp extends Component {
 
     }
 
+    //password validator
     passwordValidator = value => {
 
         if (value.length >= 6) {
@@ -96,6 +94,7 @@ class SignInPopUp extends Component {
 
     }
 
+    //form submission
     submitForm = () => {
         this.emailValidator(this.formData.email);
         this.passwordValidator(this.formData.password);
@@ -113,11 +112,15 @@ class SignInPopUp extends Component {
                 console.log(response);
                 this.setState({isSubmitted: true})
                 this.closePopUp() ;
-            }).catch( error => {
-                console.log(error);
+            }).catch(error => {
+
                 this.setState({
+                    errorData: error.response.data,
                     isSubmitted: false
                 });
+
+                console.log(this.state.errorData);
+
             });
 
         }
@@ -130,6 +133,7 @@ class SignInPopUp extends Component {
         let el = document.querySelector('.popup__class > div:first-of-type');
         el.click();
     }
+
 
     render() {
 
@@ -184,7 +188,9 @@ class SignInPopUp extends Component {
 
                                 </MuiThemeProvider>
                             </div>
-
+                            <div className="has-error">{
+                                this.state.errorData && this.state.errorData.non_field_errors[0]
+                            }</div>
                         </div>
                         <MuiThemeProvider theme={theme}>
                             <Button onClick={this.submitForm} variant="contained" color="primary"
