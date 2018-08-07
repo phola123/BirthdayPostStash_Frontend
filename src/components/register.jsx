@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import Popup from '../containers/popup';
 
 //material Ui
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -173,8 +173,8 @@ class RegisterPopup extends Component {
             }).then(response => {
 
                 console.log(response);
-                this.setState({isSubmitted: true})
-                this.closePopUp();
+                this.setState({isSubmitted: true});
+                // this.closePopUp();
             })
                 .catch(error => {
                     this.setState({
@@ -206,129 +206,137 @@ class RegisterPopup extends Component {
                     </div>
 
                     <div className="access__rhs">
-
-                        <div className="access__header">
-                            Register
-                        </div>
-
-                        <div className="access__form">
-
-
-                            {/*User Name*/}
-                            <div className="access__textFields">
-                                <MuiThemeProvider theme={theme}>
-                                    <TextField
-                                        onBlur={(e) => this.userNameValidator(e.target.value)}
-                                        onChange={e => this.formData.username = e.target.value}
-                                        id="user-input"
-                                        label="User Name"
-                                        type="text"
-                                        fullWidth
-                                        className="access__input"
-                                    />
-                                    <div className="has-error">
-                                        {!this.state.errorData ? this.userValid : (!this.state.errorData.username ? null : this.state.errorData.username[0])}
+                        {
+                            !this.state.isSubmitted
+                                ? <div className="access__registration">
+                                    <div className="access__header">
+                                        Register
                                     </div>
 
-                                </MuiThemeProvider>
-                            </div>
+                                    <div className="access__form">
 
-                            {/*Email*/}
-                            <div className="access__textFields">
-                                <MuiThemeProvider theme={theme}>
-                                    <TextField
-                                        onBlur={(e) => this.emailValidator(e.target.value)}
-                                        onChange={e => this.formData.email = e.target.value}
-                                        id="email-input"
-                                        label="Email"
-                                        type="email"
-                                        fullWidth
-                                        className="access__input"
-                                    />
-                                    <div className="has-error">
-                                        {(!this.state.errorData) ? this.emailValid : (!this.state.errorData.email ? null : this.state.errorData.email[0])}
+
+                                        {/*User Name*/}
+                                        <div className="access__textFields">
+                                            <MuiThemeProvider theme={theme}>
+                                                <TextField
+                                                    onBlur={(e) => this.userNameValidator(e.target.value)}
+                                                    onChange={e => this.formData.username = e.target.value}
+                                                    id="user-input"
+                                                    label="User Name"
+                                                    type="text"
+                                                    fullWidth
+                                                    className="access__input"
+                                                />
+                                                <div className="has-error">
+                                                    {!this.state.errorData ? this.userValid : (!this.state.errorData.username ? null : this.state.errorData.username[0])}
+                                                </div>
+
+                                            </MuiThemeProvider>
+                                        </div>
+
+                                        {/*Email*/}
+                                        <div className="access__textFields">
+                                            <MuiThemeProvider theme={theme}>
+                                                <TextField
+                                                    onBlur={(e) => this.emailValidator(e.target.value)}
+                                                    onChange={e => this.formData.email = e.target.value}
+                                                    id="email-input"
+                                                    label="Email"
+                                                    type="email"
+                                                    fullWidth
+                                                    className="access__input"
+                                                />
+                                                <div className="has-error">
+                                                    {(!this.state.errorData) ? this.emailValid : (!this.state.errorData.email ? null : this.state.errorData.email[0])}
+                                                </div>
+                                            </MuiThemeProvider>
+                                        </div>
+
+
+                                        {/*FirstName*/}
+                                        <div className="access__textFields">
+                                            <MuiThemeProvider theme={theme}>
+                                                <TextField
+                                                    onBlur={(e) => this.firstNameValidator(e.target.value)}
+                                                    onChange={e => this.formData.first_name = e.target.value}
+                                                    id="first-input"
+                                                    label="First Name"
+                                                    type="text"
+                                                    fullWidth
+                                                    className="access__input"
+                                                />
+                                                <div className="has-error">{this.firstValid}</div>
+
+                                            </MuiThemeProvider>
+                                        </div>
+
+                                        {/*LastName*/}
+                                        <div className="access__textFields">
+                                            <MuiThemeProvider theme={theme}>
+                                                <TextField
+                                                    onChange={e => this.formData.last_name = e.target.value}
+                                                    id="last-input"
+                                                    label="Last Name"
+                                                    type="text"
+                                                    fullWidth
+                                                    className="access__input"
+                                                />
+
+                                            </MuiThemeProvider>
+                                        </div>
+
+                                        {/*password*/}
+                                        <div className="access__textFields">
+                                            <MuiThemeProvider theme={theme}>
+                                                <TextField
+                                                    id="password-input"
+                                                    onBlur={(e) => this.passwordValidator(e.target.value)}
+                                                    onChange={e => this.formData.password = e.target.value}
+                                                    label="Password"
+                                                    type="password"
+                                                    fullWidth
+                                                    className="access__input"
+                                                />
+                                                <div className="has-error">{
+                                                    !this.state.errorData ? this.passValid : (!this.state.errorData.password ? null : this.state.errorData.password[0])
+                                                }
+                                                </div>
+
+                                            </MuiThemeProvider>
+                                        </div>
+
+                                        {/* repeat password*/}
+
+                                        <div className="access__textFields">
+                                            <MuiThemeProvider theme={theme}>
+                                                <TextField
+                                                    id="repeatPassword-input"
+                                                    onChange={(e) => this.repeatPassvalidator(e.target.value)}
+                                                    label="Repeat Password"
+                                                    type="password"
+                                                    fullWidth
+                                                    className="access__input"
+                                                />
+                                                <div className="has-error">{this.repeatValid}</div>
+
+                                            </MuiThemeProvider>
+                                        </div>
+
+
                                     </div>
-                                </MuiThemeProvider>
-                            </div>
+                                    <MuiThemeProvider theme={theme}>
+                                        <Button onClick={this.submitForm} variant="contained" color="primary"
+                                                className="access__cta">
+                                            Register
+                                        </Button>
+                                    </MuiThemeProvider>
+                                </div>
+                                : <div className="access__setProfile">
+                                    Registration Complete
+                                </div>
+                        }
 
-
-                            {/*FirstName*/}
-                            <div className="access__textFields">
-                                <MuiThemeProvider theme={theme}>
-                                    <TextField
-                                        onBlur={(e) => this.firstNameValidator(e.target.value)}
-                                        onChange={e => this.formData.first_name = e.target.value}
-                                        id="first-input"
-                                        label="First Name"
-                                        type="text"
-                                        fullWidth
-                                        className="access__input"
-                                    />
-                                    <div className="has-error">{this.firstValid}</div>
-
-                                </MuiThemeProvider>
-                            </div>
-
-                            {/*LastName*/}
-                            <div className="access__textFields">
-                                <MuiThemeProvider theme={theme}>
-                                    <TextField
-                                        onChange={e => this.formData.last_name = e.target.value}
-                                        id="last-input"
-                                        label="Last Name"
-                                        type="text"
-                                        fullWidth
-                                        className="access__input"
-                                    />
-
-                                </MuiThemeProvider>
-                            </div>
-
-                            {/*password*/}
-                            <div className="access__textFields">
-                                <MuiThemeProvider theme={theme}>
-                                    <TextField
-                                        id="password-input"
-                                        onBlur={(e) => this.passwordValidator(e.target.value)}
-                                        onChange={e => this.formData.password = e.target.value}
-                                        label="Password"
-                                        type="password"
-                                        fullWidth
-                                        className="access__input"
-                                    />
-                                    <div className="has-error">{
-                                        !this.state.errorData ? this.passValid : (!this.state.errorData.password ? null : this.state.errorData.password[0])
-                                    }
-                                    </div>
-
-                                </MuiThemeProvider>
-                            </div>
-
-                            {/* repeat password*/}
-
-                            <div className="access__textFields">
-                                <MuiThemeProvider theme={theme}>
-                                    <TextField
-                                        id="repeatPassword-input"
-                                        onChange={(e) => this.repeatPassvalidator(e.target.value)}
-                                        label="Repeat Password"
-                                        type="password"
-                                        fullWidth
-                                        className="access__input"
-                                    />
-                                    <div className="has-error">{this.repeatValid}</div>
-
-                                </MuiThemeProvider>
-                            </div>
-
-
-                        </div>
-                        <MuiThemeProvider theme={theme}>
-                            <Button onClick={this.submitForm} variant="contained" color="primary"
-                                    className="access__cta">
-                                Register
-                            </Button>
-                        </MuiThemeProvider>
                     </div>
                 </div>
             </Popup>
