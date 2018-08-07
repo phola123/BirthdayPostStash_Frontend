@@ -47,9 +47,24 @@ class Navbar extends Component {
         }
     }
 
+    //navbarSpacer
+
+    navSpacer = () => {
+        const navHeight = document.querySelector('nav').clientHeight;
+        const navSpacerEle = document.querySelectorAll('.nav__spacer');
+        const navArray = [...navSpacerEle];
+
+        for ( let ele of navArray ) {
+            ele.style.height = navHeight + 'px';
+        }
+    }
+
     //component did mount
     componentDidMount() {
         window.addEventListener('scroll', this.activeNav);
+        setTimeout( () => {
+            this.navSpacer();
+        }, 200);
     }
 
     render() {

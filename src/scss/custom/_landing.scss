@@ -1,5 +1,10 @@
 section {
-  padding: 2rem 0;
+  @include above__phone {
+
+    padding: 4rem 0;
+
+  }
+
 }
 
 .landing {
@@ -130,7 +135,14 @@ section {
     }
 
     .slick-list {
-      padding: 30px 40px 40px;
+
+      @include desktop {
+        padding: 30px 40px 40px;
+      }
+
+      @include below__desktop {
+        padding: 30px 0px 40px
+      }
 
     }
 
@@ -158,11 +170,12 @@ section {
     display: flex !important;
     flex-direction: column;
     justify-content: center;
-    box-shadow: 10px 18px 40px -1px rgba(0,0,0,0.15);
+    box-shadow: 10px 18px 40px -1px rgba(0, 0, 0, 0.15);
     transition: 0.3s ease;
+    margin: 0 auto;
 
     &:hover {
-      box-shadow: 10px 18px 40px -1px rgba(0,0,0,0.50);
+      box-shadow: 10px 18px 40px -1px rgba(0, 0, 0, 0.50);
       margin-top: -20px;
       border: 3px solid $primary-color;
     }
@@ -181,36 +194,35 @@ section {
     font-weight: 500;
   }
 
+  &__arrows {
+    display: flex;
+    justify-content: space-between;
+
+    .slick-disabled {
+
+      img {
+        opacity: 0.5;
+      }
+
+    }
+
+    img {
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+    }
+
+  }
+
 }
 
 @keyframes balloon {
 
-  0% {
-    transform: scale(1) translateY(0) translateX(0) rotate(0);
-  }
-
-  17% {
-    transform: scale(1.2) translateY(-30px) translateX(10px) rotate(-10deg);
-  }
-
-  34% {
-    transform: scale(1) translateY(0) translateX(0) rotate(0);
-  }
-
-  51% {
-    transform: scale(1.2) translateY(-30px) translateX(10px) rotate(10deg);
-  }
-
-  68% {
-    transform: scale(1) translateY(0) translateX(0) rotate(0);
-  }
-
-  85% {
-    transform: scale(1.2) translateY(-30px) translateX(10px) rotate(-10deg);
-  }
-
-  100% {
-    transform: scale(1) translateY(0) translateX(0) rotate(0);
-  }
+  0%,100%{ transform:translate(10px, -10px) rotate(-8eg);}
+  50%{ transform:translate(-15px, 10px) rotate(10deg); }
 
 }

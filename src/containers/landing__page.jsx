@@ -5,6 +5,8 @@ import BaloonScroll from '../assets/images/balloon.png';
 //img imports
 import tagIt from '../assets/images/friend_photo.png';
 import bell from '../assets/images/bell.png';
+import fBack from '../assets/images/feature__back.png';
+import fNext from '../assets/images/feature__next.png';
 
 //Component Imports
 
@@ -41,7 +43,7 @@ class Landing extends Component {
                     }
                 },
                 {
-                    breakpoint: 768,
+                    breakpoint: 769,
                     settings: {
                         slidesToShow: 1
                     }
@@ -86,7 +88,6 @@ class Landing extends Component {
 
                 <ScrollableAnchor id={'section1'}>
                     <section className="our__features">
-                        <div className="nav__spacer"></div>
                         <div className="section__wrapper">
 
                             <div className="application-container">
@@ -183,6 +184,19 @@ class Landing extends Component {
                                             in them.
                                         </div>
                                     </div>
+
+                                </div>
+
+                                <div className="keyFeature__arrows">
+
+
+                                    <div className="feature__prev">
+                                        <img src={fBack} />
+                                    </div>
+                                    <div className="feature__next">
+                                        <img src={fNext} />
+                                    </div>
+
 
                                 </div>
 

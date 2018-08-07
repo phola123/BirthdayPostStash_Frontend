@@ -9,9 +9,9 @@
 @import "mixins/theme-colors";
 @import "mixins/breakpoints";
 /*Fonts Import*/
-@import "mixins/_fonts-include.scss";
+@import "mixins/fonts-include.scss";
 /*  Import bootstrap core library */
-@import "vendor/argon";
+@import "vendor/bootstrap-imports";
 @import "vendor/slick";
 /*Normalize Import*/
 // @import "partials/_normalize.scss";
