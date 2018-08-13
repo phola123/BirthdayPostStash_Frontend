@@ -1,9 +1,7 @@
 section {
-  @include above__phone {
 
     padding: 4rem 0;
 
-  }
 
 }
 
@@ -37,9 +35,11 @@ section {
     margin: 0 auto;
     max-width: 50px;
 
+    cursor: pointer;
+
     animation-name: balloon;
     animation-delay: 1s;
-    animation-duration: 10s;
+    animation-duration: 3s;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -197,7 +197,7 @@ section {
   &__arrows {
     display: flex;
     justify-content: space-between;
-
+    padding: 0 20px;
     .slick-disabled {
 
       img {

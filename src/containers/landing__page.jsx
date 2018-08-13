@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
-import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
-import BaloonScroll from '../assets/images/balloon.png';
+import jump from 'jump.js'
+import {easeInOutQuad} from 'ez.js';
 
 //img imports
+import BaloonScroll from '../assets/images/balloon.png';
 import tagIt from '../assets/images/friend_photo.png';
 import bell from '../assets/images/bell.png';
 import fBack from '../assets/images/feature__back.png';
+import build from '../assets/images/buildIt.png';
 import fNext from '../assets/images/feature__next.png';
+import sSocial from '../assets/images/shareSocial.png';
 
 //Component Imports
 
 //slider import
 import $ from 'jquery';
 import 'slick-carousel';
-
-configureAnchors({offset: 60, scrollDuration: 800, keepLastAnchorHash: false});
 
 
 class Landing extends Component {
@@ -50,6 +51,24 @@ class Landing extends Component {
                 },
             ]
         });
+
+
+        //  Scroll Functions
+        const balloonTarget = document.querySelector('.our__features');
+
+        document.querySelector('.landing__scroll').addEventListener('click', function () {
+
+
+            jump(balloonTarget, {
+                duration: 1000,
+                offset: 0,
+                callback: undefined,
+                easing: easeInOutQuad,
+                a11y: false
+            });
+        });
+
+
     }
 
 
@@ -77,135 +96,106 @@ class Landing extends Component {
 
                         </div>
 
-                        <a href='#section1'>
-                            <div className="landing__scroll animatedParent">
-                                <img className="animated pulse infinite" src={BaloonScroll} alt="scrollDown"/>
-                            </div>
-                        </a>
+
+                        <div className="landing__scroll animatedParent">
+                            <img className="animated pulse infinite" src={BaloonScroll} alt="scrollDown"/>
+                        </div>
                     </div>
 
                 </header>
 
-                <ScrollableAnchor id={'section1'}>
-                    <section className="our__features">
-                        <div className="section__wrapper">
 
-                            <div className="application-container">
+                <section className="our__features">
+                    <div className="section__wrapper">
 
-                                <div className="section__header animatedParent">
-                                    <div className="section__title animated fadeInUp">
-                                        Our <span>K</span>ey Features
+                        <div className="application-container">
+
+                            <div className="section__header animatedParent">
+                                <div className="section__title animated fadeInUp">
+                                    Our <span>K</span>ey Features
+                                </div>
+                            </div>
+
+                            {/*key Fatures Cards ui*/}
+                            <div className="keyFeature__wrapper animatedParent">
+
+                                {/*feature*/}
+                                <div className="keyFeature__card  animated fadeInUpShort delay-250">
+                                    <div className="keyFeature__icon">
+                                        <img src={tagIt}/>
+                                    </div>
+                                    <div className="keyFeature__header">
+                                        Keep it, Tag Them!
+                                    </div>
+                                    <div className="keyFeature__desc">
+                                        Keep all the funny pictures of your friends in a stash. And tag your friends
+                                        in them.
                                     </div>
                                 </div>
 
-                                {/*key Fatures Cards ui*/}
-                                <div className="keyFeature__wrapper animatedParent">
-
-                                    {/*feature*/}
-                                    <div className="keyFeature__card  animated fadeInUpShort delay-250">
-                                        <div className="keyFeature__icon">
-                                            <img src={tagIt}/>
-                                        </div>
-                                        <div className="keyFeature__header">
-                                            Keep it, Tag Them!
-                                        </div>
-                                        <div className="keyFeature__desc">
-                                            Keep all the funny pictures of your friends in a stash. And tag your friends
-                                            in them.
-                                        </div>
+                                {/*feature*/}
+                                <div className="keyFeature__card animated fadeInUpShort delay-500">
+                                    <div className="keyFeature__icon">
+                                        <img src={bell}/>
                                     </div>
-
-                                    {/*feature*/}
-                                    <div className="keyFeature__card animated fadeInUpShort delay-500">
-                                        <div className="keyFeature__icon">
-                                            <img src={bell}/>
-                                        </div>
-                                        <div className="keyFeature__header">
-                                            Stay updated, Get Notified!
-                                        </div>
-                                        <div className="keyFeature__desc">
-                                            Get a reminder on a special event and access all the photos you stored of
-                                            that friend without any hassle of scrolling through all.
-                                        </div>
+                                    <div className="keyFeature__header">
+                                        Stay updated, Get Notified!
                                     </div>
-
-                                    {/*feature*/}
-                                    <div className="keyFeature__card animated fadeInUpShort delay-750">
-                                        <div className="keyFeature__icon">
-                                            <img src={tagIt}/>
-                                        </div>
-                                        <div className="keyFeature__header">
-                                            Tag Them!
-                                        </div>
-                                        <div className="keyFeature__desc">
-                                            Keep all the funny pictures of your friends in a stash. And tag your friends
-                                            in them.
-                                        </div>
+                                    <div className="keyFeature__desc">
+                                        Get a reminder on a special event and access all the photos you stored of
+                                        that friend without any hassle of scrolling through all.
                                     </div>
-
-                                    {/*feature*/}
-                                    <div className="keyFeature__card  animated fadeInUpShort delay-250">
-                                        <div className="keyFeature__icon">
-                                            <img src={tagIt}/>
-                                        </div>
-                                        <div className="keyFeature__header">
-                                            Keep it, Tag Them!
-                                        </div>
-                                        <div className="keyFeature__desc">
-                                            Keep all the funny pictures of your friends in a stash. And tag your friends
-                                            in them.
-                                        </div>
-                                    </div>
-
-                                    {/*feature*/}
-                                    <div className="keyFeature__card animated fadeInUpShort delay-500">
-                                        <div className="keyFeature__icon">
-                                            <img src={bell}/>
-                                        </div>
-                                        <div className="keyFeature__header">
-                                            Stay updated, Get Notified!
-                                        </div>
-                                        <div className="keyFeature__desc">
-                                            Get a reminder on a special event and access all the photos you stored of
-                                            that friend without any hassle of scrolling through all.
-                                        </div>
-                                    </div>
-
-                                    {/*feature*/}
-                                    <div className="keyFeature__card animated fadeInUpShort delay-750">
-                                        <div className="keyFeature__icon">
-                                            <img src={tagIt}/>
-                                        </div>
-                                        <div className="keyFeature__header">
-                                            Tag Them!
-                                        </div>
-                                        <div className="keyFeature__desc">
-                                            Keep all the funny pictures of your friends in a stash. And tag your friends
-                                            in them.
-                                        </div>
-                                    </div>
-
                                 </div>
 
-                                <div className="keyFeature__arrows">
-
-
-                                    <div className="feature__prev">
-                                        <img src={fBack} />
+                                {/*feature*/}
+                                <div className="keyFeature__card animated fadeInUpShort delay-750">
+                                    <div className="keyFeature__icon">
+                                        <img src={build}/>
                                     </div>
-                                    <div className="feature__next">
-                                        <img src={fNext} />
+                                    <div className="keyFeature__header">
+                                        Create It! Save It.
                                     </div>
-
-
+                                    <div className="keyFeature__desc">
+                                        Get a collage/video of all the photos fabricated specially for your friend on
+                                        the special day.
+                                    </div>
                                 </div>
+
+                                {/*feature*/}
+                                <div className="keyFeature__card animated fadeInUpShort delay-1000">
+                                    <div className="keyFeature__icon">
+                                        <img src={sSocial}/>
+                                    </div>
+                                    <div className="keyFeature__header">
+                                        Sharing Is Caring.
+                                    </div>
+                                    <div className="keyFeature__desc">
+                                        Access all of these photos in one page so that you can post them on other social
+                                        media platforms.
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div className="keyFeature__arrows">
+
+
+                                <div className="feature__prev">
+                                    <img src={fBack}/>
+                                </div>
+                                <div className="feature__next">
+                                    <img src={fNext}/>
+                                </div>
+
 
                             </div>
 
                         </div>
 
-                    </section>
-                </ScrollableAnchor>
+                    </div>
+
+                </section>
 
             </div>
 

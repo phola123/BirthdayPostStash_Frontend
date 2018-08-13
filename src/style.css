@@ -2483,9 +2483,8 @@ nav {
   .nav__logo img {
     width: 100%; }
 
-@media (min-width: 768px) {
-  section {
-    padding: 4rem 0; } }
+section {
+  padding: 4rem 0; }
 
 .landing__container header {
   min-height: 100vh;
@@ -2509,9 +2508,10 @@ nav {
   bottom: 20px;
   margin: 0 auto;
   max-width: 50px;
+  cursor: pointer;
   animation-name: balloon;
   animation-delay: 1s;
-  animation-duration: 10s;
+  animation-duration: 3s;
   animation-fill-mode: both;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out; }
@@ -2613,7 +2613,8 @@ nav {
 
 .keyFeature__arrows {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  padding: 0 20px; }
   .keyFeature__arrows .slick-disabled img {
     opacity: 0.5; }
   .keyFeature__arrows img {
