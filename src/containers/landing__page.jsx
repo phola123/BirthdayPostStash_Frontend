@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import jump from 'jump.js'
 import {easeInOutQuad} from 'ez.js';
 
+//redux
+
+
+
 //img imports
 import BaloonScroll from '../assets/images/balloon.png';
 import tagIt from '../assets/images/friend_photo.png';
@@ -22,7 +26,7 @@ class Landing extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            page_loaded: false
+            page_loaded: false,
         }
 
     }

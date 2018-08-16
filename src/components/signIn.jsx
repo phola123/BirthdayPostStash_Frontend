@@ -8,6 +8,9 @@ import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+//redux
+import { connect } from 'react-redux';
+
 // images import
 
 import signInImage from '../assets/images/sign-in-1.png';
@@ -35,7 +38,8 @@ class SignInPopUp extends Component {
             isSubmitted: false,
             isEmailValidated: false,
             isPassValidated: false,
-            errorData: null
+            errorData: null,
+            authToken : null
 
         };
 
@@ -109,9 +113,12 @@ class SignInPopUp extends Component {
                 }
             }).then(response => {
 
-                console.log(response);
-                this.setState({isSubmitted: true})
-                this.closePopUp() ;
+                console.log(response.data.auth_token);
+                this.setState({isSubmitted: true});
+                this.props.onSubmitSuccess(response.data.auth_token)
+                this.setState({authToken : this.props.token});
+
+
             }).catch(error => {
 
                 this.setState({
@@ -208,5 +215,34 @@ class SignInPopUp extends Component {
 
 }
 
+const mapStateToProps = state => {
 
-export default SignInPopUp;
+    return {
+
+        token : state.authToken
+
+    }
+
+};
+
+const mapDisptachToProps = dispatch => {
+
+    return {
+
+        onSubmitSuccess : authToken => {
+
+            dispatch({
+               type: 'LOGGED__IN',
+                payload: {
+                   token: authToken
+                }
+            });
+
+        }
+
+    };
+
+};
+
+
+export default connect(mapStateToProps , mapDisptachToProps )(SignInPopUp);
