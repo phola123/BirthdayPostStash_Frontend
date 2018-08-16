@@ -9,7 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 //redux
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 // images import
 
@@ -39,7 +39,7 @@ class SignInPopUp extends Component {
             isEmailValidated: false,
             isPassValidated: false,
             errorData: null,
-            authToken : null
+            authToken: null
 
         };
 
@@ -58,7 +58,7 @@ class SignInPopUp extends Component {
         console.log(value);
 
         // if (/^(?:[A-Z\d][A-Z\d_-]{5,10}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})$/i.test(value)) {
-        if(value) {
+        if (value) {
             this.setState({isEmailValidated: true});
             this.emailValid = null;
         }
@@ -103,7 +103,7 @@ class SignInPopUp extends Component {
         this.emailValidator(this.formData.email);
         this.passwordValidator(this.formData.password);
         if (this.state.isEmailValidated && this.state.isPassValidated) {
-
+            this.props.showLoader();
             axios({
                 method: 'post',
                 url: 'https://demo-bpstash.herokuapp.com/users/login/',
@@ -116,8 +116,8 @@ class SignInPopUp extends Component {
                 console.log(response.data.auth_token);
                 this.setState({isSubmitted: true});
                 this.props.onSubmitSuccess(response.data.auth_token)
-                this.setState({authToken : this.props.token});
-
+                this.setState({authToken: this.props.token});
+                this.props.hideLoader();
 
             }).catch(error => {
 
@@ -127,7 +127,7 @@ class SignInPopUp extends Component {
                 });
 
                 console.log(this.state.errorData);
-
+                this.props.hideLoader();
             });
 
         }
@@ -219,7 +219,7 @@ const mapStateToProps = state => {
 
     return {
 
-        token : state.authToken
+        token: state.authToken
 
     }
 
@@ -229,14 +229,30 @@ const mapDisptachToProps = dispatch => {
 
     return {
 
-        onSubmitSuccess : authToken => {
+        onSubmitSuccess: authToken => {
 
             dispatch({
-               type: 'LOGGED__IN',
+                type: 'LOGGED__IN',
                 payload: {
-                   token: authToken
+                    token: authToken
                 }
             });
+
+        },
+
+        showLoader: () => {
+
+            dispatch({
+                type: 'SHOW__LOADER'
+            })
+
+        },
+
+        hideLoader: () => {
+
+            dispatch({
+                type: 'HIDE__LOADER'
+            })
 
         }
 
@@ -245,4 +261,4 @@ const mapDisptachToProps = dispatch => {
 };
 
 
-export default connect(mapStateToProps , mapDisptachToProps )(SignInPopUp);
+export default connect(mapStateToProps, mapDisptachToProps)(SignInPopUp);
