@@ -1,16 +1,12 @@
 import React from 'react';
+import loaderImg from '../assets/images/loader.svg';
 
 const Loader = () => {
 
     return (
 
         <div className='overlay'>
-            <div className="lds-ring">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+            <img src={loaderImg} />
         </div>
 
     )
