@@ -378,4 +378,4 @@ const mapDisptachToProps = dispatch => {
 }
 
 
-export default connect(mapDisptachToProps)(RegisterPopup);
+export default connect( null, mapDisptachToProps)(RegisterPopup);
