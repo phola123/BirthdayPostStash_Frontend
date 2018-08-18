@@ -4,12 +4,16 @@ const Loader = () => {
 
     return (
 
-    <div className='zone'>
-        <div className='circle'></div>
-        <div className='circle2'></div>
-    </div>
+        <div className='overlay'>
+            <div className="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
 
-)
+    )
 
 }
 

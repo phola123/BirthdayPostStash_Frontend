@@ -1,6 +1,6 @@
 const initialState = {
     authToken: null,
-    loader: null
+    loader: true
 }
 
 

@@ -3,6 +3,10 @@ import React, {Component} from 'react';
 //Component Imports
 import Popup from '../containers/popup';
 
+//redux Imports
+
+import { connect } from 'react-redux';
+
 //material Ui
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -159,7 +163,7 @@ class RegisterPopup extends Component {
         this.userNameValidator(this.formData.username);
 
         if (this.state.isEmailValidated && this.state.isPassValidated && this.state.isFirstValidated && this.state.isUserValidated) {
-
+            this.props.showLoader();
             axios({
                 method: 'post',
                 url: 'https://demo-bpstash.herokuapp.com/users/register/',
@@ -174,9 +178,11 @@ class RegisterPopup extends Component {
 
                 console.log(response);
                 this.setState({isSubmitted: true});
+                this.props.hideLoader();
                 // this.closePopUp();
             })
                 .catch(error => {
+                    this.props.hideLoader();
                     this.setState({
                         errorData: error.response.data,
                         isSubmitted: false
@@ -347,5 +353,29 @@ class RegisterPopup extends Component {
 
 }
 
+const mapDisptachToProps = dispatch => {
 
-export default RegisterPopup;
+    return {
+
+        showLoader: () => {
+
+            dispatch({
+                type: 'SHOW__LOADER'
+            })
+
+        },
+
+        hideLoader: () => {
+
+            dispatch({
+                type: 'HIDE__LOADER'
+            })
+
+        }
+
+    }
+
+}
+
+
+export default connect(mapDisptachToProps)(RegisterPopup);

@@ -32,13 +32,16 @@ class App extends Component {
         }, 200);
     }
 
+    componentWillMount() {
+        this.props.hideLoader();
+    }
+
 
     render() {
         console.log(this.props);
         return (
             <div className="site__wrapper">
-                {/*{this.props.loaded ? <Loader/> : null}*/}
-                <Loader/>
+                {this.props.loaded ? <Loader/> : null}
                 <Navbar/>
                 <Landing/>
 
@@ -56,4 +59,20 @@ const mapStateToProps = state => {
 
 };
 
-export default connect(mapStateToProps)(App);
+const mapDisptachToProps = dispatch => {
+
+    return {
+
+        hideLoader: () => {
+
+            dispatch({
+                type: 'HIDE__LOADER'
+            })
+
+        }
+
+    }
+
+}
+
+export default connect( mapStateToProps , mapDisptachToProps )(App);
