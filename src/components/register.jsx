@@ -5,7 +5,8 @@ import Popup from '../containers/popup';
 
 //redux Imports
 
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import actions from '../store/actions';
 
 //material Ui
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
@@ -353,23 +354,19 @@ class RegisterPopup extends Component {
 
 }
 
-const mapDisptachToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
 
     return {
 
         showLoader: () => {
 
-            dispatch({
-                type: 'SHOW__LOADER'
-            })
+            dispatch(actions.showLoader);
 
         },
 
         hideLoader: () => {
 
-            dispatch({
-                type: 'HIDE__LOADER'
-            })
+            dispatch(actions.hideLoader);
 
         }
 
@@ -378,4 +375,4 @@ const mapDisptachToProps = dispatch => {
 }
 
 
-export default connect( null, mapDisptachToProps)(RegisterPopup);
+export default connect(null, mapDispatchToProps)(RegisterPopup);

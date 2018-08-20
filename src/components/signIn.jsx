@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 
 //redux
 import {connect} from 'react-redux';
+import actions from '../store/actions';
 
 // images import
 
@@ -55,9 +56,8 @@ class SignInPopUp extends Component {
 
     //email validator
     emailValidator = value => {
-        console.log(value);
+        this.state.errorData && this.setState({errorData: null});
 
-        // if (/^(?:[A-Z\d][A-Z\d_-]{5,10}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})$/i.test(value)) {
         if (value) {
             this.setState({isEmailValidated: true});
             this.emailValid = null;
@@ -78,6 +78,7 @@ class SignInPopUp extends Component {
 
     //password validator
     passwordValidator = value => {
+        this.state.errorData && this.setState({errorData: null});
 
         if (value.length >= 6) {
             this.setState({isPassValidated: true});
@@ -118,6 +119,7 @@ class SignInPopUp extends Component {
                 this.props.onSubmitSuccess(response.data.auth_token)
                 this.setState({authToken: this.props.token});
                 this.props.hideLoader();
+                console.log(this.state);
 
             }).catch(error => {
 
@@ -225,14 +227,14 @@ const mapStateToProps = state => {
 
 };
 
-const mapDisptachToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
 
     return {
 
         onSubmitSuccess: authToken => {
 
             dispatch({
-                type: 'LOGGED__IN',
+                ...actions.loggedIn,
                 payload: {
                     token: authToken
                 }
@@ -242,17 +244,13 @@ const mapDisptachToProps = dispatch => {
 
         showLoader: () => {
 
-            dispatch({
-                type: 'SHOW__LOADER'
-            })
+            dispatch(actions.showLoader);
 
         },
 
         hideLoader: () => {
 
-            dispatch({
-                type: 'HIDE__LOADER'
-            })
+            dispatch(actions.hideLoader);
 
         }
 
@@ -261,4 +259,4 @@ const mapDisptachToProps = dispatch => {
 };
 
 
-export default connect(mapStateToProps, mapDisptachToProps)(SignInPopUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignInPopUp);

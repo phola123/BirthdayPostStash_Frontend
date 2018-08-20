@@ -1,39 +1,39 @@
+//constant imports
+import constants from '../store/constants';
+
 const initialState = {
     authToken: null,
     loader: true
-}
+};
 
 
 const reducer = (state = initialState, action) => {
 
-    if (action.type === 'LOGGED__IN') {
+    switch (action.type) {
 
-        return {
-            ...state,
-            authToken: action.payload.token
-        }
+        case constants.LOGGED__IN  :
+            return {
+                ...state,
+                authToken: action.payload.token
+
+            };
+
+        case constants.SHOW__LOADER :
+            return {
+                ...state,
+                loader: true
+            }
+        case constants.HIDE__LOADER :
+            return {
+                ...state,
+                loader: false
+            }
+
+        default :
+            return state;
+
 
     }
-
-    if (action.type === 'SHOW__LOADER') {
-
-        return {
-            ...state,
-            loader: true
-        }
-
-    }
-
-    if (action.type === 'HIDE__LOADER') {
-
-        return {
-            ...state,
-            loader: false
-        }
-
-    }
-
-    return state;
 
 };
 

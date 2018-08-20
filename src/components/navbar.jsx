@@ -106,7 +106,7 @@ class Navbar extends Component {
                         closeHandler={this.handleSignClose}
                     /> : null
                 }
-                {/*registeration Popup*/}
+                {/*registration Popup*/}
                 {
                     this.state.registerOpen ? <RegisterPopup
                         open={this.state.registerOpen}

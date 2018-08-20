@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 
 //redux
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import actions from '../store/actions';
 
 //css imports
 import '../style.css';
@@ -38,7 +39,6 @@ class App extends Component {
 
 
     render() {
-        console.log(this.props);
         return (
             <div className="site__wrapper">
                 {this.props.loaded ? <Loader/> : null}
@@ -59,15 +59,13 @@ const mapStateToProps = state => {
 
 };
 
-const mapDisptachToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
 
     return {
 
         hideLoader: () => {
 
-            dispatch({
-                type: 'HIDE__LOADER'
-            })
+            dispatch(actions.hideLoader);
 
         }
 
@@ -75,4 +73,4 @@ const mapDisptachToProps = dispatch => {
 
 }
 
-export default connect( mapStateToProps , mapDisptachToProps )(App);
+export default connect( mapStateToProps , mapDispatchToProps )(App);
