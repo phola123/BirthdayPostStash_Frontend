@@ -51,7 +51,7 @@ class Navbar extends Component {
                         <div className="nav__links animated fadeInRightShort">
                             {/*Link*/}
                             <div className="nav__link">
-                                <a href="#">Home</a>
+                                <a href="javascript:void(0)">Home</a>
                             </div>
                             {/*Link*/}
                             <div onClick={this.props.handleClickSignOpen} className="nav__link">
@@ -63,7 +63,7 @@ class Navbar extends Component {
                             </div>
                             {/*Link*/}
                             <div className="nav__link">
-                                <a href="#">Contact Us</a>
+                                <a href="javascript:void(0)">Contact Us</a>
                             </div>
                         </div>
                     </div>

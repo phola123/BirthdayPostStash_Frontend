@@ -65,7 +65,7 @@ class Landing extends Component {
 
             jump(balloonTarget, {
                 duration: 1000,
-                offset: 0,
+                offset: -60,
                 callback: undefined,
                 easing: easeInOutQuad,
                 a11y: false
@@ -87,7 +87,7 @@ class Landing extends Component {
                     <div className="landing__headerWrapper">
                         <div className="application-container">
 
-                            <div className="landing__headInfo animatedParent">
+                            <div className="landing__headInfo animatedParent animateOnce">
 
                                 <div className="landing__heading animated fadeInUpShort delay-250">
                                     Birthday Post Stash
@@ -101,8 +101,8 @@ class Landing extends Component {
                         </div>
 
 
-                        <div className="landing__scroll animatedParent">
-                            <img className="animated pulse infinite" src={BaloonScroll} alt="scrollDown"/>
+                        <div className="landing__scroll animatedParent animateOnce">
+                            <img  className="animated pulse infinite" src={BaloonScroll} alt="scrollDown"/>
                         </div>
                     </div>
 
@@ -114,19 +114,19 @@ class Landing extends Component {
 
                         <div className="application-container">
 
-                            <div className="section__header animatedParent">
+                            <div className="section__header animatedParent animateOnce">
                                 <div className="section__title animated fadeInUp">
                                     Our <span>K</span>ey Features
                                 </div>
                             </div>
 
                             {/*key Fatures Cards ui*/}
-                            <div className="keyFeature__wrapper animatedParent">
+                            <div className="keyFeature__wrapper animatedParent animateOnce">
 
                                 {/*feature*/}
                                 <div className="keyFeature__card  animated fadeInUpShort delay-250">
                                     <div className="keyFeature__icon">
-                                        <img src={tagIt}/>
+                                        <img alt="TagImage" src={tagIt}/>
                                     </div>
                                     <div className="keyFeature__header">
                                         Keep it, Tag Them!
@@ -140,7 +140,7 @@ class Landing extends Component {
                                 {/*feature*/}
                                 <div className="keyFeature__card animated fadeInUpShort delay-500">
                                     <div className="keyFeature__icon">
-                                        <img src={bell}/>
+                                        <img alt="bellImage" src={bell}/>
                                     </div>
                                     <div className="keyFeature__header">
                                         Stay updated, Get Notified!
@@ -154,7 +154,7 @@ class Landing extends Component {
                                 {/*feature*/}
                                 <div className="keyFeature__card animated fadeInUpShort delay-750">
                                     <div className="keyFeature__icon">
-                                        <img src={build}/>
+                                        <img alt="buildImage" src={build}/>
                                     </div>
                                     <div className="keyFeature__header">
                                         Create It! Save It.
@@ -168,7 +168,7 @@ class Landing extends Component {
                                 {/*feature*/}
                                 <div className="keyFeature__card animated fadeInUpShort delay-1000">
                                     <div className="keyFeature__icon">
-                                        <img src={sSocial}/>
+                                        <img alt="share Social" src={sSocial}/>
                                     </div>
                                     <div className="keyFeature__header">
                                         Sharing Is Caring.
@@ -186,10 +186,10 @@ class Landing extends Component {
 
 
                                 <div className="feature__prev">
-                                    <img src={fBack}/>
+                                    <img alt="slideBack" src={fBack}/>
                                 </div>
                                 <div className="feature__next">
-                                    <img src={fNext}/>
+                                    <img alt="slideNext" src={fNext}/>
                                 </div>
 
 

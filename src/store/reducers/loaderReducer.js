@@ -12,13 +12,11 @@ const loaderReducer = (state = initialState, action) => {
 
         case constants.SHOW__LOADER :
             return {
-                ...state,
                 loaderShow: true
             };
 
         case constants.HIDE__LOADER :
             return {
-                ...state,
                 loaderShow: false
             };
 

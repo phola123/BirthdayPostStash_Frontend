@@ -18,7 +18,7 @@ import App from './cockpit/app';
 //combining redudcers
 
 const rootReducer = combineReducers({
-    loader: loaderReducer,
+    preLoader: loaderReducer,
     login: loginReducer,
     popup: popupReducer
 });

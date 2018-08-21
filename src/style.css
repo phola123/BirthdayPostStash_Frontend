@@ -2544,6 +2544,10 @@ section {
   font-size: 1.5rem;
   font-weight: 400; }
 
+.section__wrapper {
+  position: relative;
+  height: 100%; }
+
 .section__header {
   text-align: center;
   color: #1a191a; }
@@ -2614,7 +2618,16 @@ section {
 .keyFeature__arrows {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px; }
+  padding: 0 20px;
+  position: absolute;
+  left: 0;
+  width: 100%; }
+  @media (min-width: 768px) {
+    .keyFeature__arrows {
+      top: 0; } }
+  @media (max-width: 480px) {
+    .keyFeature__arrows {
+      bottom: 0; } }
   .keyFeature__arrows .slick-disabled img {
     opacity: 0.5; }
   .keyFeature__arrows img {

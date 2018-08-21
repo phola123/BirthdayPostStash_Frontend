@@ -48,7 +48,7 @@ class App extends Component {
             <div className="site__wrapper">
 
                 {/*Loader*/}
-                {this.props.loaderShow ? <Loader/> : null}
+                {this.props.loaded ? <Loader/> : null}
 
                 {/*navbar*/}
                 <Navbar/>
@@ -57,20 +57,16 @@ class App extends Component {
                 <Landing/>
 
                 {/*signIn popup*/}
-                {
-                    this.props.signOpen ? <SignInPopUp
-                        open={this.props.signOpen}
-                        closeHandler={this.props.handleSignClose}
-                    /> : null
-                }
+                <SignInPopUp
+                    open={this.props.signOpen}
+                    closeHandler={this.props.handleSignClose}
+                />
 
                 {/*registration Popup*/}
-                {
-                    this.props.registerOpen ? <RegisterPopup
-                        open={this.props.registerOpen}
-                        closeHandler={this.props.handleRegisterClose}
-                    /> : null
-                }
+                <RegisterPopup
+                    open={this.props.registerOpen}
+                    closeHandler={this.props.handleRegisterClose}
+                />
 
             </div>
         )
@@ -81,7 +77,7 @@ class App extends Component {
 const mapStateToProps = state => {
 
     return {
-        loaded: state.loader.loaderShow,
+        loaded: state.preLoader.loaderShow,
         signOpen: state.popup.logInState,
         registerOpen: state.popup.registerState
     }
@@ -98,7 +94,7 @@ const mapDispatchToProps = dispatch => {
 
         },
 
-        handleSignClose : () => {
+        handleSignClose: () => {
             dispatch(actions.signInClose);
         },
 

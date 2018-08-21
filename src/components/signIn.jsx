@@ -136,6 +136,14 @@ class SignInPopUp extends Component {
 
     }
 
+    onExitCallback = () => {
+        this.setState({
+            errorData: null
+        });
+        this.emailValid = null;
+        this.passValid = null;
+    }
+
     // close popup
     closePopUp = () => {
 
@@ -148,7 +156,9 @@ class SignInPopUp extends Component {
 
         return (
             <Popup open={this.props.open}
-                   closeHandler={this.props.closeHandler}>
+                   closeHandler={this.props.closeHandler}
+                   exit={this.onExitCallback}
+            >
                 <div className="access__wrapper">
 
                     <div className="access__lhs">

@@ -88,6 +88,11 @@ section {
 //Section
 
 .section {
+  
+  &__wrapper {
+    position: relative;
+    height: 100%;
+  }
 
   &__header {
     text-align: center;
@@ -198,6 +203,19 @@ section {
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
+
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    @include above__phone {
+      top: 0;
+    }
+
+    @include small__phone {
+      bottom: 0;
+    }
+
     .slick-disabled {
 
       img {

@@ -2,8 +2,8 @@
 import constants from '../constants';
 
 const initialState = {
-    logInState: null,
-    registerState: null,
+    logInState: false,
+    registerState: false,
 };
 
 

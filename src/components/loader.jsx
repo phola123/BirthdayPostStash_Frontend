@@ -6,7 +6,7 @@ const Loader = () => {
     return (
 
         <div className='overlay'>
-            <img src={loaderImg} />
+            <img alt="Loading" src={loaderImg} />
         </div>
 
     )
