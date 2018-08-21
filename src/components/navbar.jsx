@@ -2,41 +2,12 @@ import React, {Component} from 'react';
 
 //assets imports
 import Logo from '../assets/images/logo.png';
-//popup Imports
-import SignInPopUp from "./signIn";
-import RegisterPopup from './register'
+
+//redux import
+import {connect} from 'react-redux';
+import actions from "../store/actions";
 
 class Navbar extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            signOpen: false,
-            registerOpen: false
-        };
-
-    }
-
-    //popup signInOpen handler
-    handleClickSignOpen = () => {
-        this.setState({signOpen: true});
-    };
-
-    //popup registerOpen handler
-    handleClickRegisterOpen = () => {
-        this.setState({registerOpen: true});
-    };
-
-    //signInpopup Close
-    handleSignClose = () => {
-        this.setState({signOpen: false});
-    };
-
-    //Registerpopup Close
-    handleRegisterClose = () => {
-        this.setState({registerOpen: false});
-    };
 
     //active class nav handler
     activeNav = () => {
@@ -54,7 +25,7 @@ class Navbar extends Component {
         const navSpacerEle = document.querySelectorAll('.nav__spacer');
         const navArray = [...navSpacerEle];
 
-        for ( let ele of navArray ) {
+        for (let ele of navArray) {
             ele.style.height = navHeight + 'px';
         }
     }
@@ -62,7 +33,7 @@ class Navbar extends Component {
     //component did mount
     componentDidMount() {
         window.addEventListener('scroll', this.activeNav);
-        setTimeout( () => {
+        setTimeout(() => {
             this.navSpacer();
         }, 200);
     }
@@ -83,11 +54,11 @@ class Navbar extends Component {
                                 <a href="#">Home</a>
                             </div>
                             {/*Link*/}
-                            <div onClick={this.handleClickSignOpen} className="nav__link">
+                            <div onClick={this.props.handleClickSignOpen} className="nav__link">
                                 <a href="javascript:void(0)">Login</a>
                             </div>
                             {/*Link*/}
-                            <div onClick={this.handleClickRegisterOpen} className="nav__link">
+                            <div onClick={this.props.handleClickRegisterOpen} className="nav__link">
                                 <a href="javascript:void(0)">Register</a>
                             </div>
                             {/*Link*/}
@@ -99,22 +70,6 @@ class Navbar extends Component {
                 </div>
 
 
-                {/*signIn popup*/}
-                {
-                    this.state.signOpen ? <SignInPopUp
-                        open={this.state.signOpen}
-                        closeHandler={this.handleSignClose}
-                    /> : null
-                }
-                {/*registration Popup*/}
-                {
-                    this.state.registerOpen ? <RegisterPopup
-                        open={this.state.registerOpen}
-                        closeHandler={this.handleRegisterClose}
-                    /> : null
-                }
-
-
             </nav>
         )
 
@@ -122,4 +77,22 @@ class Navbar extends Component {
 
 }
 
-export default Navbar;
+const mapDispatchToProps = dispatch => {
+
+    return {
+
+        //popup signInOpen handler
+        handleClickSignOpen: () => {
+            dispatch(actions.signInOpen);
+        },
+        //popup registerOpen handler
+        handleClickRegisterOpen: () => {
+            dispatch(actions.registerOpen);
+        }
+
+    }
+
+}
+
+
+export default connect(null, mapDispatchToProps)(Navbar);

@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 
 //redux
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import actions from '../store/actions';
+
+//popup Imports
+import SignInPopUp from "../components/signIn";
+import RegisterPopup from '../components/register'
 
 //css imports
 import '../style.css';
@@ -39,11 +43,26 @@ class App extends Component {
 
 
     render() {
+
         return (
             <div className="site__wrapper">
-                {this.props.loaded ? <Loader/> : null}
+                {this.props.loaderShow ? <Loader/> : null}
                 <Navbar/>
                 <Landing/>
+                {/*signIn popup*/}
+                {
+                    this.props.signOpen ? <SignInPopUp
+                        open={this.props.signOpen}
+                        closeHandler={this.props.handleSignClose}
+                    /> : null
+                }
+                {/*registration Popup*/}
+                {
+                    this.props.registerOpen ? <RegisterPopup
+                        open={this.props.registerOpen}
+                        closeHandler={this.props.handleRegisterClose}
+                    /> : null
+                }
 
             </div>
         )
@@ -54,7 +73,9 @@ class App extends Component {
 const mapStateToProps = state => {
 
     return {
-        loaded: state.loader
+        loaded: state.loader.loaderShow,
+        signOpen: state.popup.logInState,
+        registerOpen: state.popup.registerState
     }
 
 };
@@ -67,10 +88,20 @@ const mapDispatchToProps = dispatch => {
 
             dispatch(actions.hideLoader);
 
+        },
+
+        handleSignClose : () => {
+            dispatch(actions.signInClose);
+        },
+
+        handleRegisterClose: () => {
+
+            dispatch(actions.registerClose);
+
         }
 
     }
 
 }
 
-export default connect( mapStateToProps , mapDispatchToProps )(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

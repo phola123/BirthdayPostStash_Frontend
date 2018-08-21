@@ -221,7 +221,7 @@ const mapStateToProps = state => {
 
     return {
 
-        token: state.authToken
+        token: state.login.authToken
 
     }
 

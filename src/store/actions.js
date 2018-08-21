@@ -17,6 +17,22 @@ const actions = {
 
     hideLoader: {
         type: constants.HIDE__LOADER
+    },
+
+    signInOpen: {
+        type: constants.LOGIN__OPEN
+    },
+
+    signInClose: {
+        type: constants.LOGIN__CLOSE
+    },
+
+    registerOpen: {
+        type: constants.REGISTER__OPEN
+    },
+
+    registerClose: {
+        type: constants.REGISTER__CLOSE
     }
 
 
