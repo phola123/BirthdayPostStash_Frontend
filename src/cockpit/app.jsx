@@ -46,9 +46,16 @@ class App extends Component {
 
         return (
             <div className="site__wrapper">
+
+                {/*Loader*/}
                 {this.props.loaderShow ? <Loader/> : null}
+
+                {/*navbar*/}
                 <Navbar/>
+
+                {/*Landing Page*/}
                 <Landing/>
+
                 {/*signIn popup*/}
                 {
                     this.props.signOpen ? <SignInPopUp
@@ -56,6 +63,7 @@ class App extends Component {
                         closeHandler={this.props.handleSignClose}
                     /> : null
                 }
+
                 {/*registration Popup*/}
                 {
                     this.props.registerOpen ? <RegisterPopup
