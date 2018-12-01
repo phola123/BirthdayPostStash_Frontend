@@ -12,22 +12,19 @@ class Navbar extends Component {
     //active class nav handler
     activeNav = () => {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            document.querySelector("nav").classList.add("active");
+            document.querySelector(".nav__wrapper").classList.add("active");
         } else if (document.body.scrollTop < 150 || document.documentElement.scrollTop > 150) {
-            document.querySelector("nav").classList.remove("active");
+            document.querySelector(".nav__wrapper").classList.remove("active");
         }
     }
 
     //navbarSpacer
 
     navSpacer = () => {
-        const navHeight = document.querySelector('nav').clientHeight;
-        const navSpacerEle = document.querySelectorAll('.nav__spacer');
-        const navArray = [...navSpacerEle];
+        const navHeight = document.querySelector('.nav__wrapper').clientHeight;
+        const navSpacerEle = document.querySelector('.nav__spacer');
 
-        for (let ele of navArray) {
-            ele.style.height = navHeight + 'px';
-        }
+        navSpacerEle.style.height = navHeight + 'px';
     }
 
     //component did mount
@@ -35,40 +32,41 @@ class Navbar extends Component {
         window.addEventListener('scroll', this.activeNav);
         setTimeout(() => {
             this.navSpacer();
-        }, 200);
+        }, 500);
     }
 
     render() {
 
         return (
             <nav>
-
-                <div className="application-container">
-                    <div className="nav__container animatedParent">
-                        <div className="nav__logo animated fadeInLeftShort">
-                            <img src={Logo} alt="BdayStashPostLogo"/>
-                        </div>
-                        <div className="nav__links animated fadeInRightShort">
-                            {/*Link*/}
-                            <div className="nav__link">
-                                <a href="javascript:void(0)">Home</a>
+                <div className="nav__wrapper animatedParent active">
+                    <div className="application-container">
+                        <div class="nav__container">
+                            <div className="nav__logo animated fadeInLeftShort">
+                                <img src={Logo} alt="BdayStashPostLogo"/>
                             </div>
-                            {/*Link*/}
-                            <div onClick={this.props.handleClickSignOpen} className="nav__link">
-                                <a href="javascript:void(0)">Login</a>
-                            </div>
-                            {/*Link*/}
-                            <div onClick={this.props.handleClickRegisterOpen} className="nav__link">
-                                <a href="javascript:void(0)">Register</a>
-                            </div>
-                            {/*Link*/}
-                            <div className="nav__link">
-                                <a href="javascript:void(0)">Contact Us</a>
+                            <div className="nav__links animated fadeInRightShort">
+                                {/*Link*/}
+                                <div className="nav__link">
+                                    <a href="javascript:void(0)">Home</a>
+                                </div>
+                                {/*Link*/}
+                                <div onClick={this.props.handleClickSignOpen} className="nav__link">
+                                    <a href="javascript:void(0)">Login</a>
+                                </div>
+                                {/*Link*/}
+                                <div onClick={this.props.handleClickRegisterOpen} className="nav__link">
+                                    <a href="javascript:void(0)">Register</a>
+                                </div>
+                                {/*Link*/}
+                                <div className="nav__link">
+                                    <a href="javascript:void(0)">Contact Us</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <div className="nav__spacer"/>
 
             </nav>
         )

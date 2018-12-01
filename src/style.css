@@ -2448,14 +2448,14 @@ body {
   padding-top: 45px;
   padding-bottom: 45px; }
 
-nav {
+.nav__wrapper {
   position: fixed;
   width: 100%;
   z-index: 50;
   padding: 10px 10px 30px;
   margin: 5px 0;
   transition: 0.6s ease all; }
-  nav.active {
+  .nav__wrapper.active {
     background: #a6cb47;
     padding: 10px;
     margin: 0; }
@@ -2466,7 +2466,6 @@ nav {
   align-items: center; }
 
 .nav__spacer {
-  min-height: 20px;
   max-height: 91px; }
 
 .nav__links {
@@ -2721,3 +2720,305 @@ section {
     width: 100%;
     height: 100%;
     max-width: 500px; }
+
+.leftProfile {
+  height: 600px;
+  background: rgba(7, 54, 34, 0.8); }
+
+.leftProfile .wrapper {
+  width: 90%;
+  height: 400px;
+  margin: 60px auto;
+  background-color: rgba(0, 0, 0, 0.75); }
+
+.leftProfile .wrapper .leftInfo {
+  width: 70%;
+  height: 100%;
+  float: left; }
+
+.leftProfile .wrapper .leftInfo .wrapperTwo {
+  padding: 20px; }
+
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart p,
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart h4,
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart h5 {
+  text-align: left;
+  padding: 0;
+  margin: 0; }
+
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart p.birthdays {
+  background: #364a03;
+  padding: 5px;
+  margin-bottom: 2px;
+  transition: 0.2s all ease-in-out;
+  color: #FFFFFF; }
+
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart p.birthdays:hover {
+  background: #0D202A;
+  color: #FA3D03;
+  transition: 0.2s all ease-in-out;
+  padding-left: 10px; }
+
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart p.interest {
+  font-family: 'Alegreya', sans-serif;
+  line-height: 15px;
+  font-size: 16px; }
+
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart p.interest span {
+  color: #999A9C; }
+
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart h4,
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart h5 {
+  text-transform: capitalize;
+  color: #a6cb47;
+  padding-bottom: 5px; }
+
+.leftProfile .wrapper .leftInfo .wrapperTwo .topPart h5 {
+  padding-top: 30px; }
+
+.leftProfile .wrapper .leftInfo .bottomButtons {
+  margin-top: 25px; }
+
+.leftProfile .wrapper .leftInfo .bottomButtons a {
+  background: #364a03;
+  padding: 10px 20px;
+  color: #FFFFFF;
+  float: left;
+  text-decoration: none;
+  transition: 0.2s all ease-in-out; }
+
+.leftProfile .wrapper .leftInfo .bottomButtons a:hover {
+  background: #617f14;
+  color: #aaaaab;
+  text-decoration: none;
+  transition: 0.2s all ease-in-out; }
+
+.leftProfile .wrapper .leftInfo .bottomButtons a.anchor2 {
+  float: right; }
+
+.leftProfile .wrapper .rightPicture {
+  width: 30%;
+  height: 100%;
+  float: left; }
+
+.leftProfile .wrapper .rightPicture .innerWrapper {
+  position: relative;
+  transition: 0.3s all ease-in-out; }
+
+.leftProfile .wrapper .rightPicture .innerWrapper .topBox {
+  height: 150px;
+  /*	background: blue;*/ }
+
+.leftProfile .wrapper .rightPicture .innerWrapper img {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  top: 30px;
+  border: 15px solid #A6CB47;
+  left: 20px;
+  transition: 0.3s all ease-in-out; }
+
+.leftProfile .wrapper .rightPicture .innerWrapper:hover img {
+  border: 15px solid #E1A800;
+  transition: 0.3s all ease-in-out;
+  transform: scale(0.9); }
+
+.leftProfile .wrapper .rightPicture .innerWrapper .bottomBox {
+  height: 250px;
+  background: #A6CB47;
+  border-radius: 50px 50px 0px 0px;
+  transition: 0.3s all ease-in-out; }
+
+.leftProfile .wrapper .rightPicture .innerWrapper:hover .bottomBox {
+  background: #E1A800;
+  transition: 0.3s all ease-in-out; }
+
+.leftProfile .wrapper .rightPicture .innerWrapper .bottomBox p {
+  color: #0D2D3E;
+  padding-top: 85px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: justify;
+  transition: 0.3s all ease-in-out; }
+
+.leftProfile .wrapper .rightPicture .innerWrapper:hover .bottomBox p {
+  color: #0E1814;
+  padding-top: 90px;
+  transition: 0.3s all ease-in-out; }
+
+.rightFriends {
+  height: 600px;
+  background-color: #113243; }
+
+.rightFriends .wrapper {
+  width: 400px;
+  margin: 10px auto 0 auto; }
+
+.rightFriends .wrapper h3 {
+  color: #FBB034;
+  font-size: 25px;
+  padding: 10px;
+  text-shadow: 0px 0px 10px mediumvioletred; }
+
+.rightFriends .wrapper .friend {
+  height: 90px;
+  width: 350px;
+  background: rgba(10, 15, 18, 0.5);
+  margin-bottom: 10px;
+  margin: 0 auto 10px auto;
+  transition: 0.3s all ease-in-out;
+  box-shadow: 0px 0px 5px #A6CB47;
+  position: relative;
+  overflow: hidden; }
+
+.rightFriends .wrapper .friend .leftImage img {
+  display: block;
+  float: left;
+  height: 70px;
+  width: 70px;
+  border: 5px solid #E1A800;
+  border-radius: 50%;
+  margin-left: 20px;
+  transition: 0.3s all ease-in-out;
+  z-index: 30000;
+  margin-top: 10px; }
+
+.rightFriends .wrapper .friend:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 20px #A6CB47;
+  transition: 0.3s all ease-in-out; }
+
+.rightFriends .wrapper .friend:hover .leftImage img {
+  transform: scale(1.25);
+  transition: 0.3s all ease-in-out;
+  border: 5px solid #A6CB47; }
+
+.rightFriends .wrapper .friend .rightText {
+  float: left;
+  margin-left: 20px;
+  margin-top: 22px;
+  transition: 0.3s all ease-in-out; }
+
+.rightFriends .wrapper .friend .rightText h4 {
+  color: #a6cb47;
+  text-transform: inherit;
+  font-size: 16px;
+  text-align: left;
+  transition: 0.3s all ease-in-out; }
+
+.rightFriends .wrapper .friend .rightText p {
+  font-family: 'Alegreya', sans-serif;
+  text-align: left;
+  color: #aaaaab;
+  font-size: 18px;
+  transition: 0.3s all ease-in-out; }
+
+.rightFriends .wrapper .friend:hover .rightText p {
+  /*	color:  #FA3D03;*/
+  color: #c63103;
+  transition: 0.3s all ease-in-out; }
+
+.rightFriends .wrapper .friend:hover .rightText h4 {
+  color: #FBB034;
+  transition: 0.3s all ease-in-out; }
+
+.rightFriends .wrapper .friend .innerWrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+.overlay {
+  position: absolute;
+  right: -110px;
+  bottom: 10px;
+  transition: 0.3s all ease-in-out; }
+
+.overlay .socialIcons .fab.fa-facebook-f {
+  padding: 5px 6.5px; }
+
+.overlay .socialIcons .fab.fa-facebook-f:hover {
+  padding: 5px 6.5px; }
+
+.rightFriends .wrapper .friend:hover .innerWrapper .overlay {
+  position: absolute;
+  right: 132px;
+  bottom: 10px;
+  transition: 0.3s all ease-in-out; }
+
+.rightFriends .wrapper .friend:hover .rightText {
+  margin-top: 10px;
+  transition: 0.3s all ease-in-out; }
+
+.rightFriends .wrapper .friend:hover .innerWrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: visible; }
+
+.overlay .socialIcons .fab {
+  font-family: "Font Awesome 5 Brands";
+  color: #FFFFFF;
+  font-size: 10px;
+  background-color: #385E4E;
+  padding: 5px;
+  transition: 0.3s all ease-in-out;
+  margin-right: 5px; }
+
+.overlay .socialIcons .fab:hover {
+  font-family: "Font Awesome 5 Brands";
+  color: #385E4E;
+  font-size: 10px;
+  background-color: #FFFFFF;
+  padding: 5px;
+  transition: 0.3s all ease-in-out;
+  margin-right: 3px; }
+
+a#viewAll {
+  display: block;
+  float: right;
+  color: #000000;
+  width: 240px;
+  background: #f9d621;
+  padding: 10px 40px;
+  margin-top: 20px;
+  transition: 0.3s all ease-in-out;
+  text-transform: uppercase; }
+
+a#viewAll:hover {
+  display: block;
+  float: right;
+  color: #f9d621;
+  width: 240px;
+  padding: 10px 40px;
+  background: #000000;
+  margin-top: 20px;
+  transition: 0.3s all ease-in-out;
+  text-transform: uppercase; }
+
+/*===================================================================================================
+                                            FOOTER
+=====================================================================================================*/
+footer {
+  background-color: #A6CB47; }
+
+/*tooltip*/
+.tooltipPara {
+  color: #FFFFFF;
+  padding-top: 10px;
+  font-size: 12px; }
+
+.tooltipimg {
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-left: 5px; }
+
+.meow li {
+  float: left;
+  list-style: none; }
+
+.meow li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; }

@@ -1,20 +1,21 @@
-nav {
-  position: fixed;
-  width: 100%;
-  z-index: $z-sticky-header;
-  padding: 10px 10px 30px;
-  margin: 5px 0;
-
-  transition: 0.6s ease all;
-
-  &.active {
-    background: rgb(166, 203, 71);
-    padding: 10px;
-    margin: 0;
-  }
-}
 
 .nav {
+
+  &__wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: $z-sticky-header;
+    padding: 10px 10px 30px;
+    margin: 5px 0;
+
+    transition: 0.6s ease all;
+
+    &.active {
+      background: rgb(166, 203, 71);
+      padding: 10px;
+      margin: 0;
+    }
+  }
 
   &__container {
 
@@ -25,7 +26,6 @@ nav {
   }
 
   &__spacer {
-    min-height: 20px;
     max-height: 91px;
   }
 
@@ -37,8 +37,8 @@ nav {
     }
 
     a {
-      color : white;
-      font-size : 1rem;
+      color: white;
+      font-size: 1rem;
       font-weight: 600;
     }
 

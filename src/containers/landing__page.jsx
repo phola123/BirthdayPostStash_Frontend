@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import jump from 'jump.js'
-import { easeInOutQuad } from 'ez.js';
+import {easeInOutQuad} from 'ez.js';
 
 // img imports
 import BaloonScroll from '../assets/images/balloon.png';
@@ -23,6 +23,15 @@ class Landing extends Component {
             page_loaded: false,
         }
 
+    }
+
+    //navbarSpacer
+
+    navSpacer = () => {
+        const navHeight = document.querySelector('nav__wrapper').clientHeight;
+        const navSpacerEle = document.querySelector('.nav__spacer');
+
+        navSpacerEle.style.height = navHeight + 'px';
     }
 
     componentDidMount() {
@@ -65,8 +74,15 @@ class Landing extends Component {
                 a11y: false
             });
         });
+        // nav height setter
+        document.querySelector(".nav__wrapper").classList.remove("active");
+        setTimeout(() => {
+            document.querySelector(".nav__spacer").style.height = 0;
+        }, 600);
+    }
 
-
+    componentWillUnmount() {
+        this.navSpacer();
     }
 
 
@@ -78,7 +94,6 @@ class Landing extends Component {
 
                 <header>
 
-                    <div className="nav__spacer"></div>
                     <div className="landing__headerWrapper">
                         <div className="application-container">
 
@@ -97,7 +112,7 @@ class Landing extends Component {
 
 
                         <div className="landing__scroll animatedParent animateOnce">
-                            <img  className="animated pulse infinite" src={BaloonScroll} alt="scrollDown"/>
+                            <img className="animated pulse infinite" src={BaloonScroll} alt="scrollDown"/>
                         </div>
                     </div>
 

@@ -4,6 +4,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import actions from '../store/actions';
 
+//router
+import {Route} from 'react-router-dom';
+
 //popup Imports
 import SignInPopUp from "../components/signIn";
 import RegisterPopup from '../components/register'
@@ -14,6 +17,7 @@ import '../style.css';
 import Landing from '../containers/landing__page';
 import Navbar from '../components/navbar';
 import Loader from '../components/loader';
+import Profile from '../components/profile';
 
 class App extends Component {
     constructor(props) {
@@ -54,7 +58,9 @@ class App extends Component {
                 <Navbar/>
 
                 {/*Landing Page*/}
-                <Landing/>
+                <Route path="/" exact component={Landing}/>
+
+                <Route path="/profile" exact component={Profile}/>
 
                 {/*signIn popup*/}
                 <SignInPopUp
