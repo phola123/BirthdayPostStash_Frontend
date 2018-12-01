@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 import jump from 'jump.js'
-import {easeInOutQuad} from 'ez.js';
+import { easeInOutQuad } from 'ez.js';
 
-//redux
-
-
-
-//img imports
+// img imports
 import BaloonScroll from '../assets/images/balloon.png';
 import tagIt from '../assets/images/friend_photo.png';
 import bell from '../assets/images/bell.png';
@@ -15,9 +11,7 @@ import build from '../assets/images/buildIt.png';
 import fNext from '../assets/images/feature__next.png';
 import sSocial from '../assets/images/shareSocial.png';
 
-//Component Imports
-
-//slider import
+// slider import
 import $ from 'jquery';
 import 'slick-carousel';
 
@@ -81,6 +75,7 @@ class Landing extends Component {
         return (
 
             <div className="landing__container">
+
                 <header>
 
                     <div className="nav__spacer"></div>
